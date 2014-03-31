@@ -10,4 +10,8 @@
 
 @interface AJFViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
+
+- (IBAction)buttonPressed:(UIButton *)sender;
+
 @end
