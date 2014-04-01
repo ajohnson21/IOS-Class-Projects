@@ -43,15 +43,17 @@
     CARBrake *brakePEDAL = [[CARBrake alloc] init];
     brakePEDAL.frame = CGRectMake(100, 75, 25, 25);
     [brakePEDAL setTitle:@"Stop" forState: UIControlStateNormal];
+    [brakePEDAL addTarget:self action:@selector(pressbrakePEDAL) forControlEvents: UIControlEventTouchUpInside];
     [self.view addSubview:(brakePEDAL)];
     
     CARIgnition *startBUTTON = [[CARIgnition alloc] init];
     startBUTTON.frame = CGRectMake(150, 120, 15, 15);
     [startBUTTON setTitle:@"Start" forState:UIControlStateNormal];
+    [startBUTTON addTarget:self action:@selector(pressstartBUTTON) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:(startBUTTON)];
     
     CARBumper *bumper = [[CARBumper alloc] init];
-    bumper.frame = CGRectMake(100, 100, 100, 100);
+    //bumper.frame = CGRectMake(100, 100, 100, 100);
     [self.view addSubview:(bumper)];
     
     CARWindow *windshield = [[CARWindow alloc] init];
@@ -79,6 +81,16 @@
 - (void) pressgasPEDAL
 {
     NSLog(@"Pressed Gas");
+}
+
+- (void) pressbrakePEDAL
+{
+    NSLog(@"Pressed Break");
+}
+
+- (void) pressstartBUTTON
+{
+    NSLog(@"Pressed Start");
 }
 - (void)didReceiveMemoryWarning
 {
