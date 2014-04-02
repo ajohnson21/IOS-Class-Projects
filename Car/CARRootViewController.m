@@ -44,23 +44,23 @@
     brakePEDAL.frame = CGRectMake(100, 75, 25, 25);
     [brakePEDAL setTitle:@"Stop" forState: UIControlStateNormal];
     [brakePEDAL addTarget:self action:@selector(pressbrakePEDAL) forControlEvents: UIControlEventTouchUpInside];
-    [self.view addSubview:(brakePEDAL)];
+    [self.view addSubview:brakePEDAL];
     
     CARIgnition *startBUTTON = [[CARIgnition alloc] init];
     startBUTTON.frame = CGRectMake(150, 120, 15, 15);
     [startBUTTON setTitle:@"Start" forState:UIControlStateNormal];
     [startBUTTON addTarget:self action:@selector(pressstartBUTTON) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:(startBUTTON)];
+    [self.view addSubview:startBUTTON];
     
     CARBumper *bumper = [[CARBumper alloc] init];
     //bumper.frame = CGRectMake(100, 100, 100, 100);
-    [self.view addSubview:(bumper)];
+    [self.view addSubview:bumper];
     
     CARWindow *windshield = [[CARWindow alloc] init];
     windshield.frame = CGRectMake(20, 160, 280, 200);
     windshield.backgroundColor = [UIColor blackColor];
     windshield.alpha = 0.2;
-    [self.view addSubview:(windshield)];
+    [self.view addSubview:windshield];
     
     
     CARWheel *wheel1 = [[CARWheel alloc] init];
@@ -68,13 +68,13 @@
     [self.view addSubview:wheel1];
     CARWheel *wheel2 = [[CARWheel alloc] init];
     wheel2.frame = CGRectMake(80, 40, 40, 40);
-    [self.view addSubview:(wheel2)];
+    [self.view addSubview:wheel2];
     CARWheel *wheel3 = [[CARWheel alloc] init];
     wheel3.frame = CGRectMake(140, 40, 40, 40);
-    [self.view addSubview:(wheel3)];
+    [self.view addSubview:wheel3];
     CARWheel *wheel4 = [[CARWheel alloc] init];
     wheel4.frame = CGRectMake(200, 40, 40, 40);
-    [self.view addSubview:(wheel4)];
+    [self.view addSubview:wheel4];
     
 }
 
