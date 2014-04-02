@@ -107,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C896069518EC4AE7000406CC /* todo */,
+				C89606DF18ECA690000406CC /* Pictures */,
 				C89606AE18EC4AE7000406CC /* todoTests */,
 				C896068E18EC4AE7000406CC /* Frameworks */,
 				C896068D18EC4AE7000406CC /* Products */,
@@ -136,19 +137,6 @@
 		C896069518EC4AE7000406CC /* todo */ = {
 			isa = PBXGroup;
 			children = (
-				C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */,
-				C89606D218EC8AFE000406CC /* Heidi Proske.png */,
-				C89606CB18EC8AFE000406CC /* John Yam.png */,
-				C89606C918EC8AFE000406CC /* TJ Mercer.png */,
-				C89606D018EC8AFE000406CC /* Teddy Conyers.png */,
-				C89606CE18EC8AFE000406CC /* Jon Fox.png */,
-				C89606CC18EC8AFE000406CC /* Austen Johnson.png */,
-				C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */,
-				C89606D318EC8AFE000406CC /* Derek Weber.png */,
-				C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */,
-				C89606C518EC8AD2000406CC /* Ali Houshmand.png */,
-				C89606C318EC8ACC000406CC /* Jeff King.png */,
-				C89606C118EC8AB4000406CC /* Savitha Reddy.png */,
 				C896069E18EC4AE7000406CC /* TDLAppDelegate.h */,
 				C896069F18EC4AE7000406CC /* TDLAppDelegate.m */,
 				C89606A118EC4AE7000406CC /* Images.xcassets */,
@@ -186,6 +174,27 @@
 				C89606B118EC4AE7000406CC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C89606DF18ECA690000406CC /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				C89606D218EC8AFE000406CC /* Heidi Proske.png */,
+				C89606CB18EC8AFE000406CC /* John Yam.png */,
+				C89606C918EC8AFE000406CC /* TJ Mercer.png */,
+				C89606D018EC8AFE000406CC /* Teddy Conyers.png */,
+				C89606CE18EC8AFE000406CC /* Jon Fox.png */,
+				C89606CC18EC8AFE000406CC /* Austen Johnson.png */,
+				C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */,
+				C89606D318EC8AFE000406CC /* Derek Weber.png */,
+				C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */,
+				C89606C518EC8AD2000406CC /* Ali Houshmand.png */,
+				C89606C318EC8ACC000406CC /* Jeff King.png */,
+				C89606C118EC8AB4000406CC /* Savitha Reddy.png */,
+				C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */,
+			);
+			name = Pictures;
+			path = todo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
