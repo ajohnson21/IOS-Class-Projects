@@ -20,6 +20,19 @@
 		C89606B318EC4AE7000406CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C89606B118EC4AE7000406CC /* InfoPlist.strings */; };
 		C89606B518EC4AE7000406CC /* todoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C89606B418EC4AE7000406CC /* todoTests.m */; };
 		C89606C018EC4C79000406CC /* TDLRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89606BF18EC4C79000406CC /* TDLRootTableViewController.m */; };
+		C89606C218EC8AB4000406CC /* Savitha Reddy.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C118EC8AB4000406CC /* Savitha Reddy.png */; };
+		C89606C418EC8ACC000406CC /* Jeff King.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C318EC8ACC000406CC /* Jeff King.png */; };
+		C89606C618EC8AD2000406CC /* Ali Houshmand.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C518EC8AD2000406CC /* Ali Houshmand.png */; };
+		C89606C818EC8AD9000406CC /* Jeffrey Moulds.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */; };
+		C89606D418EC8AFE000406CC /* TJ Mercer.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C918EC8AFE000406CC /* TJ Mercer.png */; };
+		C89606D518EC8AFE000406CC /* Ashby Thornwell.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */; };
+		C89606D618EC8AFE000406CC /* John Yam.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CB18EC8AFE000406CC /* John Yam.png */; };
+		C89606D718EC8AFE000406CC /* Austen Johnson.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CC18EC8AFE000406CC /* Austen Johnson.png */; };
+		C89606D818EC8AFE000406CC /* Jisha Obukwelu.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */; };
+		C89606D918EC8AFE000406CC /* Jon Fox.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CE18EC8AFE000406CC /* Jon Fox.png */; };
+		C89606DB18EC8AFE000406CC /* Teddy Conyers.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D018EC8AFE000406CC /* Teddy Conyers.png */; };
+		C89606DD18EC8AFE000406CC /* Heidi Proske.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D218EC8AFE000406CC /* Heidi Proske.png */; };
+		C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D318EC8AFE000406CC /* Derek Weber.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +64,19 @@
 		C89606B418EC4AE7000406CC /* todoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todoTests.m; sourceTree = "<group>"; };
 		C89606BE18EC4C79000406CC /* TDLRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLRootTableViewController.h; sourceTree = "<group>"; };
 		C89606BF18EC4C79000406CC /* TDLRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLRootTableViewController.m; sourceTree = "<group>"; };
+		C89606C118EC8AB4000406CC /* Savitha Reddy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Savitha Reddy.png"; sourceTree = "<group>"; };
+		C89606C318EC8ACC000406CC /* Jeff King.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jeff King.png"; sourceTree = "<group>"; };
+		C89606C518EC8AD2000406CC /* Ali Houshmand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ali Houshmand.png"; sourceTree = "<group>"; };
+		C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jeffrey Moulds.png"; sourceTree = "<group>"; };
+		C89606C918EC8AFE000406CC /* TJ Mercer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TJ Mercer.png"; sourceTree = "<group>"; };
+		C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ashby Thornwell.png"; sourceTree = "<group>"; };
+		C89606CB18EC8AFE000406CC /* John Yam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "John Yam.png"; sourceTree = "<group>"; };
+		C89606CC18EC8AFE000406CC /* Austen Johnson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Austen Johnson.png"; sourceTree = "<group>"; };
+		C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jisha Obukwelu.png"; sourceTree = "<group>"; };
+		C89606CE18EC8AFE000406CC /* Jon Fox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jon Fox.png"; sourceTree = "<group>"; };
+		C89606D018EC8AFE000406CC /* Teddy Conyers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Teddy Conyers.png"; sourceTree = "<group>"; };
+		C89606D218EC8AFE000406CC /* Heidi Proske.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heidi Proske.png"; sourceTree = "<group>"; };
+		C89606D318EC8AFE000406CC /* Derek Weber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Derek Weber.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +136,19 @@
 		C896069518EC4AE7000406CC /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */,
+				C89606D218EC8AFE000406CC /* Heidi Proske.png */,
+				C89606CB18EC8AFE000406CC /* John Yam.png */,
+				C89606C918EC8AFE000406CC /* TJ Mercer.png */,
+				C89606D018EC8AFE000406CC /* Teddy Conyers.png */,
+				C89606CE18EC8AFE000406CC /* Jon Fox.png */,
+				C89606CC18EC8AFE000406CC /* Austen Johnson.png */,
+				C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */,
+				C89606D318EC8AFE000406CC /* Derek Weber.png */,
+				C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */,
+				C89606C518EC8AD2000406CC /* Ali Houshmand.png */,
+				C89606C318EC8ACC000406CC /* Jeff King.png */,
+				C89606C118EC8AB4000406CC /* Savitha Reddy.png */,
 				C896069E18EC4AE7000406CC /* TDLAppDelegate.h */,
 				C896069F18EC4AE7000406CC /* TDLAppDelegate.m */,
 				C89606A118EC4AE7000406CC /* Images.xcassets */,
@@ -225,8 +264,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89606D418EC8AFE000406CC /* TJ Mercer.png in Resources */,
+				C89606C418EC8ACC000406CC /* Jeff King.png in Resources */,
+				C89606D718EC8AFE000406CC /* Austen Johnson.png in Resources */,
+				C89606C618EC8AD2000406CC /* Ali Houshmand.png in Resources */,
+				C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */,
 				C896069A18EC4AE7000406CC /* InfoPlist.strings in Resources */,
+				C89606D518EC8AFE000406CC /* Ashby Thornwell.png in Resources */,
+				C89606D918EC8AFE000406CC /* Jon Fox.png in Resources */,
+				C89606DB18EC8AFE000406CC /* Teddy Conyers.png in Resources */,
 				C89606A218EC4AE7000406CC /* Images.xcassets in Resources */,
+				C89606DD18EC8AFE000406CC /* Heidi Proske.png in Resources */,
+				C89606C818EC8AD9000406CC /* Jeffrey Moulds.png in Resources */,
+				C89606D618EC8AFE000406CC /* John Yam.png in Resources */,
+				C89606C218EC8AB4000406CC /* Savitha Reddy.png in Resources */,
+				C89606D818EC8AFE000406CC /* Jisha Obukwelu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

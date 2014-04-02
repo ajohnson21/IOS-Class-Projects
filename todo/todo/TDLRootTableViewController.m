@@ -12,6 +12,7 @@
 
 {
     NSArray *listItems;
+    NSArray *listImages;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -19,8 +20,63 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        listItems = @[@" ", @"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday"];
-        NSLog(@"listitems : %@ ... %@", listItems, listItems[0]);
+        listItems = @[
+                      @"Savitha Reddy ",
+                      @"Jeff King",
+                      @"Ali Houshmand",
+                      @"Jeffrey Moulds",
+                      @"Derek Weber",
+                      @"Ashby Thornwell",
+                      @"Austen Johnson",
+                      @"Jon Fox",
+                      @"Teddy Conyers",
+                      @"TJ Mercer",
+                      @"John Yam",
+                      @"Heidi Proske",
+                      @"Jisha Obukwelu"];
+        listImages = @[
+                       [UIImage imageNamed:@"Savitha Reddy"],
+                       [UIImage imageNamed:@"Jeff King"],
+                       [UIImage imageNamed:@"Ali Houshmand"],
+                       [UIImage imageNamed:@"Jeffrey Moulds"],
+                       [UIImage imageNamed:@"Derek Weber"],
+                       [UIImage imageNamed:@"Ashby Thornwell"],
+                       [UIImage imageNamed:@"Austen Johnson"],
+                       [UIImage imageNamed:@"Jon Fox"],
+                       [UIImage imageNamed:@"Teddy Conyers"],
+                       [UIImage imageNamed:@"TJ Mercer"],
+                       [UIImage imageNamed:@"John Yam"],
+                       [UIImage imageNamed:@"Heidi Proske"],
+                       [UIImage imageNamed:@"Jisha Obukwelu"]
+                       ];
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+        self.tableView.rowHeight = 100;
+        
+        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+                           
+                           header.backgroundColor  = [UIColor darkGrayColor];
+        
+        UILabel * titleholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
+        
+        titleholder.text = @"             List of Class Names";
+        titleholder.textColor = [UIColor whiteColor];
+        [header addSubview:titleholder];
+        
+        
+        self.tableView.tableHeaderView  = header;
+        
+        
+        UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+        
+        footer.backgroundColor = [UIColor darkGrayColor];
+        UILabel * footerholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
+        
+        footerholder.text = @"                      The End";
+        footerholder.textColor = [UIColor whiteColor];
+        [footer addSubview:footerholder];
+        self.tableView.tableFooterView  = footer;
+        
         
     
     }
@@ -66,9 +122,10 @@
     
     int index = [indexPath row];
     
-    NSString * day = listItems[index];
+    cell.textLabel.text = listItems[index];
+    cell.imageView.image = listImages[index];
     
-    cell.textLabel.text = day;
+    
     
     // Configure the cell...
     
