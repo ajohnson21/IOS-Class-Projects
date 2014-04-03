@@ -20,42 +20,35 @@
     self = [super initWithStyle:style];
     if (self)
     {
+        // NSDictionary * listExample = [[NSDictionary alloc] initWithObjects:@[@"Savitha Reddy"] forKeys:@[@"name"]];
+        
+        // NSDictionary * list = @{
+           //                     @"name" : @"Savitha Reeddy",
+             //                   @"image" : [UIImage imageNamed: @"Savitha Reddy"]}
+        
         listItems = @[
-                      @"Savitha Reddy ",
-                      @"Jeff King",
-                      @"Ali Houshmand",
-                      @"Jeffrey Moulds",
-                      @"Derek Weber",
-                      @"Ashby Thornwell",
-                      @"Austen Johnson",
-                      @"Jon Fox",
-                      @"Teddy Conyers",
-                      @"TJ Mercer",
-                      @"John Yam",
-                      @"Heidi Proske",
-                      @"Jisha Obukwelu"];
-        listImages = @[
-                       [UIImage imageNamed:@"Savitha Reddy"],
-                       [UIImage imageNamed:@"Jeff King"],
-                       [UIImage imageNamed:@"Ali Houshmand"],
-                       [UIImage imageNamed:@"Jeffrey Moulds"],
-                       [UIImage imageNamed:@"Derek Weber"],
-                       [UIImage imageNamed:@"Ashby Thornwell"],
-                       [UIImage imageNamed:@"Austen Johnson"],
-                       [UIImage imageNamed:@"Jon Fox"],
-                       [UIImage imageNamed:@"Teddy Conyers"],
-                       [UIImage imageNamed:@"TJ Mercer"],
-                       [UIImage imageNamed:@"John Yam"],
-                       [UIImage imageNamed:@"Heidi Proske"],
-                       [UIImage imageNamed:@"Jisha Obukwelu"]
-                       ];
+                      @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"]},
+                      @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed: @"Jeff King"]},
+                      @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed: @"Ali Houshmand"]},
+                      @{@"name" : @"Jeffrey Moulds", @"image" : [UIImage imageNamed: @"Jeffrey Moulds"]},
+                      @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed: @"Derek Weber"]},
+                      @{@"name" : @"Ashby Thornwell", @"image" : [UIImage imageNamed: @"Ashby Thornwell"]},
+                      @{@"name" : @"Austen Johnson", @"image" : [UIImage imageNamed: @"Austen Johnson"]},
+                      @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed: @"Jon Fox"]},
+                      @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed: @"Teddy Conyers"]},
+                      @{@"name" : @"TJ Mercer", @"image" : [UIImage imageNamed: @"TJ Mercer"]},
+                      @{@"name" : @"John Yam", @"image" : [UIImage imageNamed: @"John Yam"]},
+                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed: @"Heidi Proske"]},
+                      @{@"name" : @"Jisha Obukwelu", @"image" : [UIImage imageNamed: @"Jisha Obukwelu"]}
+                      ];
+    
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
                            
-                           header.backgroundColor  = [UIColor darkGrayColor];
+        header.backgroundColor  = [UIColor darkGrayColor];
         
         UILabel * titleholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
         
@@ -120,14 +113,17 @@
         cell = [[UITableViewCell alloc] init];
     }
     
-    int index = [indexPath row];
+   // int index = [indexPath row];
+    int index = indexPath.row;
     
-    cell.textLabel.text = listItems[index];
-    cell.imageView.image = listImages[index];
+//    cell.textLabel.text = listItems[index];
+//    cell.imageView.image = listImages[index];
     
+//    NSDictionary * listItem = listItems[index];
     
+    cell.textLabel.text = listItems [index][@"name"];
+    cell.imageView.image = listItems [index][@"image"];
     
-    // Configure the cell...
     
     return cell;
 }
