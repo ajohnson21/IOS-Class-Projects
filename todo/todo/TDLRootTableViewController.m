@@ -74,6 +74,7 @@
         UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
         [header addSubview:nameField];
         nameField.backgroundColor = [UIColor whiteColor];
+        nameField.placeholder = @"Enter contact here...";
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 60, 30)];
         [submitButton setTitle:@"Add User" forState:UIControlStateNormal];
@@ -81,7 +82,6 @@
         submitButton.layer.cornerRadius = 15;
         submitButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
         [header addSubview:submitButton];
         
         
@@ -89,6 +89,8 @@
     }
     return self;
 }
+
+// trial placeholder text here
 
 - (void)viewDidLoad
 {
