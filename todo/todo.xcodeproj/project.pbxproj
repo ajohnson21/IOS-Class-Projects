@@ -33,6 +33,7 @@
 		C89606DB18EC8AFE000406CC /* Teddy Conyers.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D018EC8AFE000406CC /* Teddy Conyers.png */; };
 		C89606DD18EC8AFE000406CC /* Heidi Proske.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D218EC8AFE000406CC /* Heidi Proske.png */; };
 		C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D318EC8AFE000406CC /* Derek Weber.png */; };
+		C8EFC61518EDA79600D042DC /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EFC61418EDA79600D042DC /* TDLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		C89606D018EC8AFE000406CC /* Teddy Conyers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Teddy Conyers.png"; sourceTree = "<group>"; };
 		C89606D218EC8AFE000406CC /* Heidi Proske.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heidi Proske.png"; sourceTree = "<group>"; };
 		C89606D318EC8AFE000406CC /* Derek Weber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Derek Weber.png"; sourceTree = "<group>"; };
+		C8EFC61318EDA79600D042DC /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
+		C8EFC61418EDA79600D042DC /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C896069518EC4AE7000406CC /* todo */,
+				C8EFC61618EDA7B300D042DC /* Controllers */,
 				C89606DF18ECA690000406CC /* Pictures */,
 				C89606AE18EC4AE7000406CC /* todoTests */,
 				C896068E18EC4AE7000406CC /* Frameworks */,
@@ -140,8 +144,6 @@
 				C896069E18EC4AE7000406CC /* TDLAppDelegate.h */,
 				C896069F18EC4AE7000406CC /* TDLAppDelegate.m */,
 				C89606A118EC4AE7000406CC /* Images.xcassets */,
-				C89606BE18EC4C79000406CC /* TDLRootTableViewController.h */,
-				C89606BF18EC4C79000406CC /* TDLRootTableViewController.m */,
 				C896069618EC4AE7000406CC /* Supporting Files */,
 			);
 			path = todo;
@@ -195,6 +197,26 @@
 			);
 			name = Pictures;
 			path = todo;
+			sourceTree = "<group>";
+		};
+		C8EFC61618EDA7B300D042DC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C89606BE18EC4C79000406CC /* TDLRootTableViewController.h */,
+				C89606BF18EC4C79000406CC /* TDLRootTableViewController.m */,
+				C8EFC61718EDA7F400D042DC /* TableView */,
+			);
+			name = Controllers;
+			path = todo;
+			sourceTree = "<group>";
+		};
+		C8EFC61718EDA7F400D042DC /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				C8EFC61318EDA79600D042DC /* TDLTableViewCell.h */,
+				C8EFC61418EDA79600D042DC /* TDLTableViewCell.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8EFC61518EDA79600D042DC /* TDLTableViewCell.m in Sources */,
 				C896069C18EC4AE7000406CC /* main.m in Sources */,
 				C89606A018EC4AE7000406CC /* TDLAppDelegate.m in Sources */,
 				C89606C018EC4C79000406CC /* TDLRootTableViewController.m in Sources */,
@@ -505,6 +528,7 @@
 				C89606BA18EC4AE7000406CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C89606BB18EC4AE7000406CC /* Build configuration list for PBXNativeTarget "todoTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +537,7 @@
 				C89606BD18EC4AE7000406CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

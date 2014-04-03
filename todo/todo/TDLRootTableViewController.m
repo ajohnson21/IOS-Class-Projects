@@ -7,6 +7,7 @@
 //
 
 #import "TDLRootTableViewController.h"
+#import "TDLTableViewCell.h"
 
 @implementation TDLRootTableViewController
 
@@ -26,35 +27,35 @@
            //                     @"name" : @"Savitha Reeddy",
              //                   @"image" : [UIImage imageNamed: @"Savitha Reddy"]}
         
-        listItems = @[
-                      @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"]},
-                      @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed: @"Jeff King"]},
-                      @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed: @"Ali Houshmand"]},
-                      @{@"name" : @"Jeffrey Moulds", @"image" : [UIImage imageNamed: @"Jeffrey Moulds"]},
-                      @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed: @"Derek Weber"]},
-                      @{@"name" : @"Ashby Thornwell", @"image" : [UIImage imageNamed: @"Ashby Thornwell"]},
-                      @{@"name" : @"Austen Johnson", @"image" : [UIImage imageNamed: @"Austen Johnson"]},
-                      @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed: @"Jon Fox"]},
-                      @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed: @"Teddy Conyers"]},
-                      @{@"name" : @"TJ Mercer", @"image" : [UIImage imageNamed: @"TJ Mercer"]},
-                      @{@"name" : @"John Yam", @"image" : [UIImage imageNamed: @"John Yam"]},
-                      @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed: @"Heidi Proske"]},
-                      @{@"name" : @"Jisha Obukwelu", @"image" : [UIImage imageNamed: @"Jisha Obukwelu"]}
-                      ];
+    listItems = @[
+                @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"], @"github": @"https://github.com/saviios"},
+                @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed: @"Jeff King"], @"github": @"https://github.com/rampis"},
+                @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed: @"Ali Houshmand"], @"github": @"https://github.com/HoushmandA06"},
+                @{@"name" : @"Jeffrey Moulds", @"image" : [UIImage imageNamed: @"Jeffrey Moulds"], @"github": @"https://github.com/jdmgithub/iOS-Class-Project"},
+                @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed: @"Derek Weber"], @"github": @"https://github.com/dweber03"},
+                @{@"name" : @"Ashby Thornwell", @"image" : [UIImage imageNamed: @"Ashby Thornwell"], @"github": @"https://github.com/athornwell"},
+                @{@"name" : @"Austen Johnson", @"image" : [UIImage imageNamed: @"Austen Johnson"], @"github": @"https://github.com/ajohnson21"},
+                @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed: @"Jon Fox"], @"github": @"https://github.com/FoxJon"},
+                @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed: @"Teddy Conyers"], @"github": @"https://github.com/talented76"},
+                @{@"name" : @"TJ Mercer", @"image" : [UIImage imageNamed: @"TJ Mercer"], @"github": @"https://github.com/gwanunig14"},
+                @{@"name" : @"John Yam", @"image" : [UIImage imageNamed: @"John Yam"], @"github": @"https://github.com/yamski"},
+                @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed: @"Heidi Proske"], @"github": @"https://github.com/justagirlcoding"},
+                @{@"name" : @"Jisha Obukwelu", @"image" : [UIImage imageNamed: @"Jisha Obukwelu"], @"github": @"https://github.com/Jiobu"}
+                ];
     
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
         
-        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
                            
         header.backgroundColor  = [UIColor darkGrayColor];
         
-        UILabel * titleholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
-        
-        titleholder.text = @"             List of Class Names";
-        titleholder.textColor = [UIColor whiteColor];
-        [header addSubview:titleholder];
+//        UILabel * titleholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
+//        
+//        titleholder.text = @"List of Class Names";
+//        titleholder.textColor = [UIColor whiteColor];
+//        [header addSubview:titleholder];
         
         
         self.tableView.tableHeaderView  = header;
@@ -69,6 +70,13 @@
         footerholder.textColor = [UIColor whiteColor];
         [footer addSubview:footerholder];
         self.tableView.tableFooterView  = footer;
+        
+        UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
+        [header addSubview:nameField];
+        nameField.backgroundColor = [UIColor whiteColor];
+        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 60, 30)];
+        [submitButton setTitle:@"newUser" forState:UIControlStateNormal];
+        [header addSubview:submitButton];
         
         
     
@@ -106,23 +114,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] init];
-    }
+    if (cell == nil) cell = [[TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" ];
     
-   // int index = [indexPath row];
     int index = indexPath.row;
     
 //    cell.textLabel.text = listItems[index];
 //    cell.imageView.image = listImages[index];
     
-//    NSDictionary * listItem = listItems[index];
+    NSDictionary * listItem = listItems[index];
     
-    cell.textLabel.text = listItems [index][@"name"];
-    cell.imageView.image = listItems [index][@"image"];
+    cell.profileInfo = listItem;
+    
+//    cell.textLabel.text = listItems [index][@"name"];
+//    cell.imageView.image = listItems [index][@"image"];
     
     
     return cell;
