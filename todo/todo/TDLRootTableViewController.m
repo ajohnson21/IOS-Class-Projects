@@ -74,8 +74,12 @@
         UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
         [header addSubview:nameField];
         nameField.backgroundColor = [UIColor whiteColor];
+        
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 60, 30)];
-        [submitButton setTitle:@"newUser" forState:UIControlStateNormal];
+        [submitButton setTitle:@"Add User" forState:UIControlStateNormal];
+        submitButton.backgroundColor = [UIColor greenColor];
+        submitButton.layer.cornerRadius = 15;
+        submitButton.font = [UIFont systemFontOfSize:12];
         [header addSubview:submitButton];
         
         
