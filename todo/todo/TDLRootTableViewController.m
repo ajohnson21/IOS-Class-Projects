@@ -79,7 +79,9 @@
         [submitButton setTitle:@"Add User" forState:UIControlStateNormal];
         submitButton.backgroundColor = [UIColor greenColor];
         submitButton.layer.cornerRadius = 15;
-        submitButton.font = [UIFont systemFontOfSize:12];
+        submitButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+        [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         [header addSubview:submitButton];
         
         
