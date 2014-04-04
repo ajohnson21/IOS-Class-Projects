@@ -43,6 +43,8 @@
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
         
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
+        
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
                            
         header.backgroundColor  = [UIColor whiteColor];
@@ -53,21 +55,21 @@
         
         UIView * footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
         
-        footer.backgroundColor = [UIColor darkGrayColor];
+        footer.backgroundColor = [UIColor whiteColor];
         UILabel * footerholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
         
         footerholder.text = @"                      The End";
-        footerholder.textColor = [UIColor whiteColor];
+        footerholder.textColor = [UIColor blackColor];
         [footer addSubview:footerholder];
         self.tableView.tableFooterView  = footer;
         
-        UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
+        UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 170, 30)];
         [header addSubview:nameField];
         nameField.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
-        nameField.placeholder = @"Enter contact here...";
+        nameField.placeholder = @" Enter contact here...";
         
         
-        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 60, 30)];
+        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 60, 30)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
         submitButton.backgroundColor = [UIColor blackColor];
         submitButton.layer.cornerRadius = 15;
@@ -86,12 +88,11 @@
 
 // begin trial placeholder text removal here
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    textField.placeholder=nil;
-}
+    
 // end trial placeholder text removal here
 
-- (void)viewDidLoad
+
+    - (void)viewDidLoad
 {
     [super viewDidLoad];
     
