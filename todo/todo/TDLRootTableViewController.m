@@ -21,11 +21,7 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        // NSDictionary * listExample = [[NSDictionary alloc] initWithObjects:@[@"Savitha Reddy"] forKeys:@[@"name"]];
         
-        // NSDictionary * list = @{
-           //                     @"name" : @"Savitha Reeddy",
-             //                   @"image" : [UIImage imageNamed: @"Savitha Reddy"]}
         
     listItems = @[
                 @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"], @"github": @"https://github.com/saviios"},
@@ -49,13 +45,7 @@
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
                            
-        header.backgroundColor  = [UIColor darkGrayColor];
-        
-//        UILabel * titleholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
-//        
-//        titleholder.text = @"List of Class Names";
-//        titleholder.textColor = [UIColor whiteColor];
-//        [header addSubview:titleholder];
+        header.backgroundColor  = [UIColor whiteColor];
         
         
         self.tableView.tableHeaderView  = header;
@@ -73,24 +63,33 @@
         
         UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
         [header addSubview:nameField];
-        nameField.backgroundColor = [UIColor whiteColor];
+        nameField.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
         nameField.placeholder = @"Enter contact here...";
         
+        
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 20, 60, 30)];
-        [submitButton setTitle:@"Add User" forState:UIControlStateNormal];
-        submitButton.backgroundColor = [UIColor greenColor];
+        [submitButton setTitle:@"New User" forState:UIControlStateNormal];
+        submitButton.backgroundColor = [UIColor blackColor];
         submitButton.layer.cornerRadius = 15;
         submitButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-        [submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [header addSubview:submitButton];
         
-        
-    
+        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, 280, 30)];
+        titleHeader.text = @"GitHub Users";
+        titleHeader.textColor = [UIColor blackColor];
+        titleHeader.font = [UIFont fontWithName:@"HoeflerText-Italic" size:30];
+        [header addSubview:titleHeader];
     }
     return self;
 }
 
-// trial placeholder text here
+// begin trial placeholder text removal here
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    textField.placeholder=nil;
+}
+// end trial placeholder text removal here
 
 - (void)viewDidLoad
 {
