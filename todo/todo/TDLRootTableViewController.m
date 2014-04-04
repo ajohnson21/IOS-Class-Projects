@@ -44,6 +44,7 @@
         self.tableView.rowHeight = 100;
         
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
+        self.tableView.separatorColor = [UIColor redColor];
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
                            
@@ -58,8 +59,8 @@
         footer.backgroundColor = [UIColor whiteColor];
         UILabel * footerholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
         
-        footerholder.text = @"                      The End";
-        footerholder.textColor = [UIColor blackColor];
+        // footerholder.text = @"                      The End";
+        footerholder.textColor = [UIColor whiteColor];
         [footer addSubview:footerholder];
         self.tableView.tableFooterView  = footer;
         
@@ -67,6 +68,7 @@
         [header addSubview:nameField];
         nameField.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
         nameField.placeholder = @" Enter contact here...";
+        nameField.delegate = self;
         
         
         UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 60, 30)];
@@ -88,9 +90,9 @@
 
 // begin trial placeholder text removal here
 
-    
-// end trial placeholder text removal here
-
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    textField.placeholder=nil;
+}
 
     - (void)viewDidLoad
 {
