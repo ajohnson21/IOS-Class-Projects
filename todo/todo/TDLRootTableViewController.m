@@ -169,15 +169,7 @@
 
     if (cell == nil) cell = [[TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" ];
     
-    int index = indexPath.row;
-    
-//    cell.textLabel.text = listItems[index];
-//    cell.imageView.image = listImages[index];
-    
-    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
-    NSDictionary * listItem = reverseArray[index];
-    
-    cell.profileInfo = listItem;
+    cell.profileInfo = [self getListItem:indexPath.row];
     
 //    cell.textLabel.text = listItems [index][@"name"];
 //    cell.imageView.image = listItems [index][@"image"];
@@ -188,15 +180,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    int index = indexPath.row;
-    
-    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
-    NSDictionary * listItem = reverseArray[index];
+    NSDictionary * listItem = [self getListItem:indexPath.row];
     
     NSLog(@"%@", listItem);
-    
-    
+
+}
+
+- (NSDictionary *)getListItem:(NSInteger)row
+{
+    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+    return reverseArray[row];
 }
 
 /*
