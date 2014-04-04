@@ -27,7 +27,7 @@
         [self.contentView addSubview:profileImage];
         
         profileName = [[UILabel alloc] initWithFrame:CGRectMake(100, 20, 200, 30)];
-        profileName.textColor = [UIColor darkGrayColor];
+        profileName.textColor = [UIColor blackColor];
         profileName.font = [UIFont systemFontOfSize:30];
         [self.contentView addSubview:profileName];
         

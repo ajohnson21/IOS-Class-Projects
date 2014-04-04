@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C89594EA18EF333E000F7191 /* GitHubFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89594E918EF333E000F7191 /* GitHubFlow.storyboard */; };
 		C896069018EC4AE7000406CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C896068F18EC4AE7000406CC /* Foundation.framework */; };
 		C896069218EC4AE7000406CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C896069118EC4AE7000406CC /* CoreGraphics.framework */; };
 		C896069418EC4AE7000406CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C896069318EC4AE7000406CC /* UIKit.framework */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C89594E918EF333E000F7191 /* GitHubFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitHubFlow.storyboard; sourceTree = "<group>"; };
 		C896068C18EC4AE7000406CC /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C896068F18EC4AE7000406CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C896069118EC4AE7000406CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,7 @@
 		C896068318EC4AE7000406CC = {
 			isa = PBXGroup;
 			children = (
+				C89594E918EF333E000F7191 /* GitHubFlow.storyboard */,
 				C896069518EC4AE7000406CC /* todo */,
 				C8EFC61618EDA7B300D042DC /* Controllers */,
 				C89606DF18ECA690000406CC /* Pictures */,
@@ -300,6 +303,7 @@
 				C89606D718EC8AFE000406CC /* Austen Johnson.png in Resources */,
 				C89606C618EC8AD2000406CC /* Ali Houshmand.png in Resources */,
 				C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */,
+				C89594EA18EF333E000F7191 /* GitHubFlow.storyboard in Resources */,
 				C896069A18EC4AE7000406CC /* InfoPlist.strings in Resources */,
 				C89606D518EC8AFE000406CC /* Ashby Thornwell.png in Resources */,
 				C89606D918EC8AFE000406CC /* Jon Fox.png in Resources */,

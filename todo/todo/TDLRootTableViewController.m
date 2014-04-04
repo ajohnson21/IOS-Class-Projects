@@ -12,8 +12,8 @@
 @implementation TDLRootTableViewController
 
 {
-    NSArray *listItems;
-    NSArray *listImages;
+    NSMutableArray *listItems;
+    UITextField * nameField;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -23,7 +23,7 @@
     {
         
         
-    listItems = @[
+        listItems = [@[
                 @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"], @"github": @"https://github.com/saviios"},
                 @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed: @"Jeff King"], @"github": @"https://github.com/rampis"},
                 @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed: @"Ali Houshmand"], @"github": @"https://github.com/HoushmandA06"},
@@ -37,7 +37,7 @@
                 @{@"name" : @"John Yam", @"image" : [UIImage imageNamed: @"John Yam"], @"github": @"https://github.com/yamski"},
                 @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed: @"Heidi Proske"], @"github": @"https://github.com/justagirlcoding"},
                 @{@"name" : @"Jisha Obukwelu", @"image" : [UIImage imageNamed: @"Jisha Obukwelu"], @"github": @"https://github.com/Jiobu"}
-                ];
+                ] mutableCopy];
     
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
@@ -45,6 +45,7 @@
         
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
         self.tableView.separatorColor = [UIColor blackColor];
+        self.tableView.backgroundColor = [UIColor whiteColor];
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
@@ -61,38 +62,79 @@
         UILabel * footerholder = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
         
         // footerholder.text = @"                      The End";
-        footerholder.textColor = [UIColor whiteColor];
+        footerholder.textColor = [UIColor blackColor];
         [footer addSubview:footerholder];
         self.tableView.tableFooterView  = footer;
         
-        UITextField * nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 170, 30)];
+        nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
         [header addSubview:nameField];
         nameField.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
         nameField.placeholder = @" Enter contact here...";
+        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+        nameField.leftViewMode = UITextFieldViewModeAlways;
         nameField.delegate = self;
         
         
-        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(200, 20, 60, 30)];
+        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 25, 60, 20)];
         [submitButton setTitle:@"New User" forState:UIControlStateNormal];
-        submitButton.backgroundColor = [UIColor blackColor];
-        submitButton.layer.cornerRadius = 15;
+        [submitButton addTarget:self action:@selector(newUser) forControlEvents: UIControlEventTouchUpInside];       submitButton.backgroundColor = [UIColor blackColor];
+        submitButton.layer.cornerRadius = 6;
         submitButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [header addSubview:submitButton];
+        
         
         UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(20, 70, 280, 30)];
         titleHeader.text = @"GitHub Users";
         titleHeader.textColor = [UIColor blackColor];
         titleHeader.font = [UIFont fontWithName:@"HoeflerText-Italic" size:30];
         [header addSubview:titleHeader];
+        
+        
     }
     return self;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    textField.placeholder=nil;
+
+// begin phantom text code
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    textField.placeholder = @"";
 }
 
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    textField.placeholder = @" Enter contact here...";
+};
+
+// end phantom text code
+
+// -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+
+
+- (void)newUser
+
+{
+    NSString * username = nameField.text;
+    nameField.text = @"";
+
+
+[listItems addObject:@{
+                           @"name" : username,
+ //                          @"image" : [UIImage imageNamed: @"New User"],
+                           @"github" : [NSString stringWithFormat: @"https://github.com/%@", username ]}
+                        ];
+    [nameField resignFirstResponder];
+[self.tableView reloadData];
+
+}
+
+-(BOOL)textField:(UITextField *)textField
+{
+    [self newUser];
+    return YES;
+}
     - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -132,7 +174,8 @@
 //    cell.textLabel.text = listItems[index];
 //    cell.imageView.image = listImages[index];
     
-    NSDictionary * listItem = listItems[index];
+    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+    NSDictionary * listItem = reverseArray[index];
     
     cell.profileInfo = listItem;
     
@@ -143,6 +186,18 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    int index = indexPath.row;
+    
+    NSArray * reverseArray = [[listItems reverseObjectEnumerator] allObjects];
+    NSDictionary * listItem = reverseArray[index];
+    
+    NSLog(@"%@", listItem);
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
