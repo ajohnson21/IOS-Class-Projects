@@ -44,7 +44,8 @@
         self.tableView.rowHeight = 100;
         
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 20);
-        self.tableView.separatorColor = [UIColor redColor];
+        self.tableView.separatorColor = [UIColor blackColor];
+        
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
                            
@@ -87,8 +88,6 @@
     }
     return self;
 }
-
-// begin trial placeholder text removal here
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     textField.placeholder=nil;
