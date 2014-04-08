@@ -34,6 +34,7 @@
 		C89606DB18EC8AFE000406CC /* Teddy Conyers.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D018EC8AFE000406CC /* Teddy Conyers.png */; };
 		C89606DD18EC8AFE000406CC /* Heidi Proske.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D218EC8AFE000406CC /* Heidi Proske.png */; };
 		C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D318EC8AFE000406CC /* Derek Weber.png */; };
+		C897610618F4263300237CD4 /* TDLGitHubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C897610518F4263300237CD4 /* TDLGitHubRequest.m */; };
 		C8EFC61518EDA79600D042DC /* TDLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EFC61418EDA79600D042DC /* TDLTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		C89606D018EC8AFE000406CC /* Teddy Conyers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Teddy Conyers.png"; sourceTree = "<group>"; };
 		C89606D218EC8AFE000406CC /* Heidi Proske.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Heidi Proske.png"; sourceTree = "<group>"; };
 		C89606D318EC8AFE000406CC /* Derek Weber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Derek Weber.png"; sourceTree = "<group>"; };
+		C897610418F4263300237CD4 /* TDLGitHubRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLGitHubRequest.h; sourceTree = "<group>"; };
+		C897610518F4263300237CD4 /* TDLGitHubRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLGitHubRequest.m; sourceTree = "<group>"; };
 		C8EFC61318EDA79600D042DC /* TDLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLTableViewCell.h; sourceTree = "<group>"; };
 		C8EFC61418EDA79600D042DC /* TDLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +151,8 @@
 				C896069F18EC4AE7000406CC /* TDLAppDelegate.m */,
 				C89606A118EC4AE7000406CC /* Images.xcassets */,
 				C896069618EC4AE7000406CC /* Supporting Files */,
+				C897610418F4263300237CD4 /* TDLGitHubRequest.h */,
+				C897610518F4263300237CD4 /* TDLGitHubRequest.m */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				C8EFC61518EDA79600D042DC /* TDLTableViewCell.m in Sources */,
 				C896069C18EC4AE7000406CC /* main.m in Sources */,
+				C897610618F4263300237CD4 /* TDLGitHubRequest.m in Sources */,
 				C89606A018EC4AE7000406CC /* TDLAppDelegate.m in Sources */,
 				C89606C018EC4C79000406CC /* TDLRootTableViewController.m in Sources */,
 			);

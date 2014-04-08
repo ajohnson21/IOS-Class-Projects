@@ -8,6 +8,7 @@
 
 #import "TDLRootTableViewController.h"
 #import "TDLTableViewCell.h"
+#import "TDLGitHubRequest.h"
 
 @implementation TDLRootTableViewController
 
@@ -23,22 +24,30 @@
     {
         
         
-        listItems = [@[
-                @{@"name" : @"Savitha Reddy", @"image" : [UIImage imageNamed: @"Savitha Reddy"], @"github": @"https://github.com/saviios"},
-                @{@"name" : @"Jeff King", @"image" : [UIImage imageNamed: @"Jeff King"], @"github": @"https://github.com/rampis"},
-                @{@"name" : @"Ali Houshmand", @"image" : [UIImage imageNamed: @"Ali Houshmand"], @"github": @"https://github.com/HoushmandA06"},
-                @{@"name" : @"Jeffrey Moulds", @"image" : [UIImage imageNamed: @"Jeffrey Moulds"], @"github": @"https://github.com/jdmgithub/iOS-Class-Project"},
-                @{@"name" : @"Derek Weber", @"image" : [UIImage imageNamed: @"Derek Weber"], @"github": @"https://github.com/dweber03"},
-                @{@"name" : @"Ashby Thornwell", @"image" : [UIImage imageNamed: @"Ashby Thornwell"], @"github": @"https://github.com/athornwell"},
-                @{@"name" : @"Austen Johnson", @"image" : [UIImage imageNamed: @"Austen Johnson"], @"github": @"https://github.com/ajohnson21"},
-                @{@"name" : @"Jon Fox", @"image" : [UIImage imageNamed: @"Jon Fox"], @"github": @"https://github.com/FoxJon"},
-                @{@"name" : @"Teddy Conyers", @"image" : [UIImage imageNamed: @"Teddy Conyers"], @"github": @"https://github.com/talented76"},
-                @{@"name" : @"TJ Mercer", @"image" : [UIImage imageNamed: @"TJ Mercer"], @"github": @"https://github.com/gwanunig14"},
-                @{@"name" : @"John Yam", @"image" : [UIImage imageNamed: @"John Yam"], @"github": @"https://github.com/yamski"},
-                @{@"name" : @"Heidi Proske", @"image" : [UIImage imageNamed: @"Heidi Proske"], @"github": @"https://github.com/justagirlcoding"},
-                @{@"name" : @"Jisha Obukwelu", @"image" : [UIImage imageNamed: @"Jisha Obukwelu"], @"github": @"https://github.com/Jiobu"}
-                ] mutableCopy];
-    
+        
+        listItems = [@[] mutableCopy];
+        
+        NSArray *initialGitHubUsernames = @[
+    //   @"HoushmandA06", @"athornwell", @"ajohnson21", @"adnolan99", @"dweber03", @"MadArkitekt",
+    //   @"justagirlcoding",@"rampis", @"jdmgithub", @"Jiobu", @"yamski", @"FoxJon", @"savithareddy",
+    //   @"talented76", @"gwanunig14"
+                                            ];
+        
+        listItems = [@[] mutableCopy];
+        
+        NSLog(@"listItems (size %d)", [listItems count]);
+        for (NSString *name in listItems)
+            for (NSString *username in initialGitHubUsernames)
+            {
+                NSLog(@"listItems[%lu]: %@", (unsigned long)[listItems indexOfObject:name] , name);
+                NSDictionary *newUser = [TDLGitHubRequest getUserWithUsername:username];
+                NSLog(@"listItems[%lu]: %@", (unsigned long)[listItems indexOfObject:username] , newUser);
+                [listItems addObject:newUser];
+                
+            }
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+        
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         self.tableView.rowHeight = 100;
@@ -49,7 +58,7 @@
         
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-                           
+        
         header.backgroundColor  = [UIColor whiteColor];
         
         
@@ -95,6 +104,32 @@
     return self;
 }
 
+- (void)addNewUser
+{
+    NSString *username = nameField.text;
+    
+    nameField.text = @"";
+    //    [listItems addObject:@{
+    //                           @"name": username,
+    //                           @"image": [UIImage imageNamed:@"new_user"],
+    //                           @"github": [NSString stringWithFormat:@"https://github.com/%@", username]
+    //                           }];
+    
+    NSDictionary *newUserInfo = [TDLGitHubRequest getUserWithUsername:username];
+    if ([[newUserInfo allKeys] count] == 3)
+    {
+        [listItems addObject:newUserInfo];
+    }
+    else
+    {
+        NSLog(@"Not enough data for %@", username);
+    }
+    
+    [nameField resignFirstResponder];
+    [self.tableView reloadData];
+    
+    [self saveData];
+}
 
 // begin phantom text code
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -108,26 +143,93 @@
     textField.placeholder = @" Enter contact here...";
 };
 
-// end phantom text code
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 
-// -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView reloadData];
+    
+    [self saveData];
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    if (sourceIndexPath == destinationIndexPath) return;
+    
+    NSDictionary * sourceitem = [self getListItem:sourceIndexPath.row];
+    
+    NSDictionary * toitem = [self getListItem:destinationIndexPath.row];
+    
+    [listItems removeObjectIdenticalTo:sourceitem];
+    [listItems insertObject:sourceitem atIndex:[listItems indexOfObject:toitem]];
+    
+    [self saveData];
+    
+}
+
+- (void)saveData
+{
+    NSString * path = [self listArchivePath];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:listItems];
+    [data writeToFile:path options:NSDataWritingAtomic error:nil];
+}
+
+- (NSString *) listArchivePath
+{
+    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentDirectory = documentDirectories[0];
+    return [documentDirectory stringByAppendingPathComponent:@"listdata.data"];
+}
+
+- (void) loadListItems
+{
+    NSString * path = [self listArchivePath];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:path])
+    {
+        listItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    }
+}
 
 - (void)newUser
 
 {
     NSString * username = nameField.text;
+    
     nameField.text = @"";
-
-
-[listItems addObject:@{
-                           @"name" : username,
- //                          @"image" : [UIImage imageNamed: @"New User"],
-                           @"github" : [NSString stringWithFormat: @"https://github.com/%@", username ]}
-                        ];
+    
+    
+    [listItems addObject:@{
+        @"name" : username,
+      //@"image" : [UIImage imageNamed: @"New User"],
+        @"github" : [NSString stringWithFormat: @"https://github.com/%@", username ]}
+     ];
+    
     [nameField resignFirstResponder];
-[self.tableView reloadData];
-
+    [self.tableView reloadData];
+    
+    NSDictionary * userInfo = [TDLGitHubRequest getUserWithUsername:username];
+    
+    if([[userInfo allKeys] count] == 3)
+    {
+        [listItems addObject:userInfo];
+    }
+    else
+    {
+        NSLog(@"not enough date");
+        
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Bad Information" message:@"Unable to add user" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
+        [alertview show];
+    }
+    
+    
 }
 
 -(BOOL)textField:(UITextField *)textField
@@ -135,9 +237,11 @@
     [self newUser];
     return YES;
 }
-    - (void)viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -157,7 +261,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     // Return the number of rows in the section.
     return [listItems count];
 }
@@ -166,13 +270,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-
+    
     if (cell == nil) cell = [[TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" ];
     
     cell.profileInfo = [self getListItem:indexPath.row];
     
-//    cell.textLabel.text = listItems [index][@"name"];
-//    cell.imageView.image = listItems [index][@"image"];
+    //    cell.textLabel.text = listItems [index][@"name"];
+    //    cell.imageView.image = listItems [index][@"image"];
     
     
     return cell;
@@ -182,8 +286,19 @@
 {
     NSDictionary * listItem = [self getListItem:indexPath.row];
     
+    // Create a new temporary view controller, we don't need this to persist forever, only when you select that row.
+    UIViewController *webController = [[UIViewController alloc] init];
+    UIWebView *webView = [[UIWebView alloc] init];
+    webController.view = webView;
+    [self.navigationController pushViewController:webController animated:YES];
+    
+    // Now load the URL and display
+    NSURL *url = [NSURL URLWithString:listItem[@"github"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+    
     NSLog(@"%@", listItem);
-
+    
 }
 
 - (NSDictionary *)getListItem:(NSInteger)row
@@ -193,52 +308,52 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
