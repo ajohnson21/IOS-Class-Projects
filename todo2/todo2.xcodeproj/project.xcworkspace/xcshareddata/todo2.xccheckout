@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9605929B-1427-4D7B-820B-E986DB4312ED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>todo2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D0AAD9C6-DFEA-4BC2-A759-8C0B349A07FF</key>
+		<string>https://github.com/ajohnson21/IOS-Class-Projects.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>todo2/todo2.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D0AAD9C6-DFEA-4BC2-A759-8C0B349A07FF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ajohnson21/IOS-Class-Projects.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D0AAD9C6-DFEA-4BC2-A759-8C0B349A07FF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D0AAD9C6-DFEA-4BC2-A759-8C0B349A07FF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IOS-Class-Projects</string>
+		</dict>
+	</array>
+</dict>
+</plist>

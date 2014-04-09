@@ -23,17 +23,10 @@
     if (self)
     {
         
-        
-        
         listItems = [@[] mutableCopy];
         
-        NSArray *initialGitHubUsernames = @[
-    //   @"HoushmandA06", @"athornwell", @"ajohnson21", @"adnolan99", @"dweber03", @"MadArkitekt",
-    //   @"justagirlcoding",@"rampis", @"jdmgithub", @"Jiobu", @"yamski", @"FoxJon", @"savithareddy",
-    //   @"talented76", @"gwanunig14"
-                                            ];
+        NSArray *initialGitHubUsernames = @[];
         
-        listItems = [@[] mutableCopy];
         
         NSLog(@"listItems (size %d)", [listItems count]);
         for (NSString *name in listItems)
@@ -106,7 +99,7 @@
 
 - (void)addNewUser
 {
-    NSString *username = nameField.text;
+    NSString * username = nameField.text;
     
     nameField.text = @"";
     //    [listItems addObject:@{
