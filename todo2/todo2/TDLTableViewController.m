@@ -8,6 +8,7 @@
 
 #import "TDLTableViewController.h"
 #import "TDLTableViewCell.h"
+#import "MOVE.h"
 
 @interface TDLTableViewController ()
 
@@ -28,7 +29,7 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        priorityColors = @[TAN_COLOR, YELLOW_COLOR, ORANGE_COLOR, RED_COLOR];
+        priorityColors = @[TAN_COLOR, YELLOW_COLOR, ORANGE_COLOR, RED_COLOR,];
         
         todoItems = [@[
                        @{
@@ -49,7 +50,7 @@
         self.tableView.contentInset = UIEdgeInsetsMake(20,0,0,0);
         self.tableView.rowHeight = 50;
         self.tableView.separatorInset = UIEdgeInsetsMake(0,20,0,20);
-        // self.tableView.editing = YES;
+       // self.tableView.editing = YES;
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 60)];
         header.backgroundColor  = [UIColor whiteColor];
@@ -98,18 +99,6 @@
     
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    textField.placeholder = @"";
-}
-
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    textField.placeholder = @" Enter to do item";
-    
-}
-
 - (void)addNewItem:(id)sender
 {
 //    if([sender isEqual:headerbutton1]) NSLog(@"button 1");
@@ -135,9 +124,12 @@
     [self.tableView reloadData];
 }
 
+
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
     [self addNewItem:nil];
+    nameField.text = @"";
+    textField.placeholder = @" Enter to do item";
     
     return YES;
 }
@@ -164,7 +156,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    cell.backgroundColor = cell.contentView.backgroundColor;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,17 +163,90 @@
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) cell = [[TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" ];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     NSDictionary * listItem = todoItems[indexPath.row];
     
-//    cell.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
-    cell.textLabel.text = listItem[@"name"];
+    cell.nameLabel.text = listItem[@"name"];
     cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
     
     
+    if([todoItems [indexPath.row] [@"priority"] intValue] == 0)
+    {
+        cell.strikeThrough.alpha = 1;
+        cell.circleButton.alpha = 0;
+    }
+    else
+    {
+        cell.strikeThrough.alpha = 0;
+        cell.circleButton.alpha = 1;
+        
+    }
+
+    UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [cell addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [cell addGestureRecognizer:swipeRight];
 
 return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TDLTableViewCell * cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.bgView.backgroundColor = priorityColors[0];
+   
+    cell.strikeThrough.alpha = 1;
+    cell.circleButton.alpha = 0;
+    
+    NSDictionary * updateListItems = @{
+                                       @"name": todoItems[indexPath.row ][@"name"],
+                                       @"priority" : @0
+                                       };
+    // remove dictionary for cell
+    [todoItems removeObjectAtIndex:indexPath.row];
+    
+    // add new dictionary for cell
+    [todoItems insertObject:updateListItems atIndex:indexPath.row];
+}
+
+-(void)swipeCell:(UISwipeGestureRecognizer *) gesture
+{
+  //  NSLog(@"%@", gesture);
+    TDLTableViewCell * cell = (TDLTableViewCell *)gesture.view;
+ 
+   // NSInteger index = [self.tableView indexPathForCell:cell].row;
+    
+    switch (gesture.direction) {
+        case 1:
+            NSLog(@"swiping right");
+            
+            [MOVE animateView:cell.bgView properties:@{@"x": @10,
+                                                       @"duration": @0.5
+                                                       }];
+            [cell hideCircleButtons];
+            
+            break;
+        case 2:
+            NSLog(@"swiping left");
+            
+            [MOVE animateView:cell.bgView properties:@{@"x": @-150,
+                                                       @"duration": @0.5
+                                                       }];
+            [cell showCircleButtons];
+            
+            break;
+        
+            
+        default:
+            break;
+    }
+    
+}
+//if( ) return: 
 
 - (NSDictionary *)getListItem:(NSInteger)row
 {
@@ -241,4 +305,6 @@ return cell;
  }
  */
 
+
+-(BOOL)prefersStatusBarHidden { return YES; }
 @end

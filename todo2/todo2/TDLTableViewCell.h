@@ -15,5 +15,9 @@
 @property (nonatomic) UILabel * nameLabel;
 @property (nonatomic) UIButton * circleButton;
 @property (nonatomic) UIView * bgView;
+@property (nonatomic) UIView * strikeThrough;
+
+- (void)showCircleButtons;
+- (void)hideCircleButtons;
 
 @end
