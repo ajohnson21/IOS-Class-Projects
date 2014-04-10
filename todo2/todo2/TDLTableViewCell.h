@@ -11,11 +11,12 @@
 @interface TDLTableViewCell : UITableViewCell
 
 @property (nonatomic) NSDictionary * todoInfo;
-
 @property (nonatomic) UILabel * nameLabel;
 @property (nonatomic) UIButton * circleButton;
 @property (nonatomic) UIView * bgView;
 @property (nonatomic) UIView * strikeThrough;
+
+@property (nonatomic) BOOL swiped;
 
 - (void)showCircleButtons;
 - (void)hideCircleButtons;

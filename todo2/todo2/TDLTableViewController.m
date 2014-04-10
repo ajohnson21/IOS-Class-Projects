@@ -35,8 +35,8 @@
         todoItems = [@[
                        @{
                            @"name":@"Workshop App",
-                           @"priority": @3
-                           
+                           @"priority": @3,
+                           @"filler": @3
                            },
                        @{@"name":@"Go to blogging thing", @"priority": @2},
                        @{@"name":@"Learn objective-c", @"priority": @1},
@@ -71,7 +71,7 @@
         
         headerbutton1 = [[UIButton alloc] initWithFrame:CGRectMake(200, 13, 30, 30)];
         headerbutton1.tag = 1;
-        headerbutton1.backgroundColor = [UIColor greenColor];
+        headerbutton1.backgroundColor = YELLOW_COLOR;
         [headerbutton1 setTitle:@"" forState:UIControlStateNormal];
         [headerbutton1 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
         headerbutton1.backgroundColor = [UIColor greenColor];
@@ -81,7 +81,7 @@
         
         headerbutton2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 13, 30, 30)];
         headerbutton2.tag = 2;
-        headerbutton2.backgroundColor = [UIColor yellowColor];
+        headerbutton2.backgroundColor = ORANGE_COLOR;
         [headerbutton2 setTitle:@"" forState:UIControlStateNormal];
         [headerbutton2 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];        headerbutton2.layer.cornerRadius = 15;
         
@@ -89,7 +89,7 @@
         
         headerbutton3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 13, 30, 30)];
         headerbutton3.tag = 3;
-        headerbutton3.backgroundColor = [UIColor redColor];
+        headerbutton3.backgroundColor = RED_COLOR;
         [headerbutton3 setTitle:@"" forState:UIControlStateNormal];
         [headerbutton3 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];        headerbutton3.layer.cornerRadius = 15;
         
@@ -113,7 +113,7 @@
     
     if(![name isEqualToString:@""])
     {
-        [todoItems insertObject:@{@"name":name, @"priority": @(button.tag)} atIndex:0];
+        [todoItems insertObject:@{@"name" : name, @"priority" : @(button.tag), @"filler" : @(button.tag)} atIndex:0];//        [todoItems insertObject:@{@"name":name, @"priority": @(button.tag)} atIndex:0];
     }
     
     
@@ -199,22 +199,33 @@
     //    cell.strikeThrough.alpha = 1;
     //    cell.circleButton.alpha = 0;
     
+    if (cell.swiped)
+    {
+        return;
+    }
+    
+    
+    int newPriority = 1;
+    
     if([todoItems [indexPath.row] [@"priority"] intValue] == 0)
     {
+        
         cell.strikeThrough.alpha = 0;
         cell.circleButton.alpha = 1;
-        
     }
     else
     {
+        
         cell.strikeThrough.alpha = 1;
         cell.circleButton.alpha = 0;
-        
+        newPriority = 0;
     }
     
+    
+    cell.bgView.backgroundColor = priorityColors[newPriority];
     NSDictionary * updateListItems = @{
                                        @"name": todoItems[indexPath.row ][@"name"],
-                                       @"priority" : @0
+                                       @"priority" : @(newPriority)
                                        };
     // remove dictionary for cell
     [todoItems removeObjectAtIndex:indexPath.row];
@@ -238,7 +249,7 @@
                                                        @"duration": @0.5
                                                        }];
             [cell hideCircleButtons];
-            
+            (cell.swiped = NO);
             break;
         case 2:
             NSLog(@"swiping left");
@@ -247,7 +258,7 @@
                                                        @"duration": @0.5
                                                        }];
             [cell showCircleButtons];
-            
+            (cell.swiped = YES);
             break;
             
             
@@ -257,7 +268,6 @@
     }
     
 }
-//if( ) return:
 
 - (NSDictionary *)getListItem:(NSInteger)row
 {
