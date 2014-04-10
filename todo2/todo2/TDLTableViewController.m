@@ -22,6 +22,7 @@
     UIButton * headerbutton1;
     UIButton * headerbutton2;
     UIButton * headerbutton3;
+    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -50,7 +51,7 @@
         self.tableView.contentInset = UIEdgeInsetsMake(20,0,0,0);
         self.tableView.rowHeight = 50;
         self.tableView.separatorInset = UIEdgeInsetsMake(0,20,0,20);
-       // self.tableView.editing = YES;
+        // self.tableView.editing = YES;
         
         UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 60)];
         header.backgroundColor  = [UIColor whiteColor];
@@ -101,26 +102,23 @@
 
 - (void)addNewItem:(id)sender
 {
-//    if([sender isEqual:headerbutton1]) NSLog(@"button 1");
-//    if([sender isEqual:headerbutton1]) NSLog(@"button 2");
-//    if([sender isEqual:headerbutton1]) NSLog(@"button 3");
+    //    if([sender isEqual:headerbutton1]) NSLog(@"button 1");
+    //    if([sender isEqual:headerbutton1]) NSLog(@"button 2");
+    //    if([sender isEqual:headerbutton1]) NSLog(@"button 3");
     
     UIButton * button = (UIButton *)sender;
     
     NSString * name = nameField.text;
-  //  NSInteger * priority = button.tag;
+    //  NSInteger * priority = button.tag;
     
     if(![name isEqualToString:@""])
     {
         [todoItems insertObject:@{@"name":name, @"priority": @(button.tag)} atIndex:0];
     }
     
- //   NSLog(@"%@", sender);
     
-//    nameField.text = @"";
-//    [todoItems addObject:newTodo];
     [nameField resignFirstResponder];
-//    
+    
     [self.tableView reloadData];
 }
 
@@ -170,7 +168,6 @@
     cell.nameLabel.text = listItem[@"name"];
     cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
     
-    
     if([todoItems [indexPath.row] [@"priority"] intValue] == 0)
     {
         cell.strikeThrough.alpha = 1;
@@ -182,7 +179,7 @@
         cell.circleButton.alpha = 1;
         
     }
-
+    
     UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [cell addGestureRecognizer:swipeLeft];
@@ -190,17 +187,30 @@
     UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeCell:)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [cell addGestureRecognizer:swipeRight];
-
-return cell;
+    
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TDLTableViewCell * cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.bgView.backgroundColor = priorityColors[0];
-   
-    cell.strikeThrough.alpha = 1;
-    cell.circleButton.alpha = 0;
+    
+    //    cell.strikeThrough.alpha = 1;
+    //    cell.circleButton.alpha = 0;
+    
+    if([todoItems [indexPath.row] [@"priority"] intValue] == 0)
+    {
+        cell.strikeThrough.alpha = 0;
+        cell.circleButton.alpha = 1;
+        
+    }
+    else
+    {
+        cell.strikeThrough.alpha = 1;
+        cell.circleButton.alpha = 0;
+        
+    }
     
     NSDictionary * updateListItems = @{
                                        @"name": todoItems[indexPath.row ][@"name"],
@@ -215,10 +225,10 @@ return cell;
 
 -(void)swipeCell:(UISwipeGestureRecognizer *) gesture
 {
-  //  NSLog(@"%@", gesture);
+    //  NSLog(@"%@", gesture);
     TDLTableViewCell * cell = (TDLTableViewCell *)gesture.view;
- 
-   // NSInteger index = [self.tableView indexPathForCell:cell].row;
+    
+    // NSInteger index = [self.tableView indexPathForCell:cell].row;
     
     switch (gesture.direction) {
         case 1:
@@ -239,14 +249,15 @@ return cell;
             [cell showCircleButtons];
             
             break;
-        
+            
             
         default:
             break;
+            
     }
     
 }
-//if( ) return: 
+//if( ) return:
 
 - (NSDictionary *)getListItem:(NSInteger)row
 {

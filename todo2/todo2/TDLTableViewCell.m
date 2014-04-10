@@ -43,6 +43,8 @@
         self.strikeThrough = [[UIView alloc] initWithFrame:CGRectMake(5, 19, self.frame.size.width -30, 2)];
         self.strikeThrough.backgroundColor = [UIColor whiteColor];
         self.strikeThrough.alpha = 1;
+        
+      //  self.strikeThrough.hidden = YES;
         [self.bgView addSubview:self.strikeThrough];
         
         self.circleButton = [[UIButton alloc] initWithFrame:CGRectMake(self.frame.size.width - 50, 10, 20, 20)];
