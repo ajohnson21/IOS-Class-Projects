@@ -60,16 +60,30 @@
     return self;
 }
 
--(void)showCircleButtons;
+-(void)resetLayout
 {
-    
+//    if (self.swiped)
+//    {
+//        [self.createButtons];
+//        self.swiped = YES;
+//    } else
+
+{
+    self.bgView.frame = CGRectMake(10, 0, self.frame.size.width - 20, 40);
+    [headerbutton1 removeFromSuperview];
+    [headerbutton2 removeFromSuperview];
+    [headerbutton3 removeFromSuperview];
+    self.swiped = NO;
+}
+}
+- (void)createButtons
+{
     headerbutton1 = [[UIButton alloc] initWithFrame:CGRectMake(200, 0, 30, 30)];
     headerbutton1.tag = 1;
     headerbutton1.alpha = 0;
-    headerbutton1.backgroundColor = [UIColor greenColor];
+    headerbutton1.backgroundColor = YELLOW_COLOR;
     [headerbutton1 setTitle:@"" forState:UIControlStateNormal];
-    //   [headerbutton1 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
-    headerbutton1.backgroundColor = [UIColor greenColor];
+    [headerbutton1 addTarget:self action:@selector(pressPriorityButton:) forControlEvents: UIControlEventTouchUpInside];
     headerbutton1.layer.cornerRadius = 15;
     
     [self.contentView addSubview:headerbutton1];
@@ -77,9 +91,9 @@
     headerbutton2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 0, 30, 30)];
     headerbutton2.tag = 2;
     headerbutton2.alpha = 0;
-    headerbutton2.backgroundColor = [UIColor yellowColor];
+    headerbutton2.backgroundColor = ORANGE_COLOR;
     [headerbutton2 setTitle:@"" forState:UIControlStateNormal];
-    //  [headerbutton2 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
+    [headerbutton2 addTarget:self action:@selector(pressPriorityButton:) forControlEvents: UIControlEventTouchUpInside];
     headerbutton2.layer.cornerRadius = 15;
     
     [self.contentView addSubview:headerbutton2];
@@ -87,18 +101,25 @@
     headerbutton3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 30, 30)];
     headerbutton3.tag = 3;
     headerbutton3.alpha = 0;
-    headerbutton3.backgroundColor = [UIColor redColor];
+    headerbutton3.backgroundColor = RED_COLOR;
     [headerbutton3 setTitle:@"" forState:UIControlStateNormal];
-    //  [headerbutton3 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
+    [headerbutton3 addTarget:self action:@selector(pressPriorityButton:) forControlEvents: UIControlEventTouchUpInside];
     headerbutton3.layer.cornerRadius = 15;
     
     [self.contentView addSubview:headerbutton3];
+}
+
+
+-(void)showCircleButtons
+{
+    
+    [self createButtons];
     
     [MOVE animateView:headerbutton1 properties:@{@"alpha":@1,@"duration":@0.2,@"delay":@0.3}];
     [MOVE animateView:headerbutton2 properties:@{@"alpha":@1,@"duration":@0.2,@"delay":@0.2}];
     [MOVE animateView:headerbutton3 properties:@{@"alpha":@1,@"duration":@0.2,@"delay":@0.1}];
 }
--(void)hideCircleButtons;
+-(void)hideCircleButtons
 {
     [MOVE animateView:headerbutton1
            properties:@{@"alpha":@0,@"duration":@0.2,@"delay":@0.0,@"remove":@YES}];
@@ -110,11 +131,11 @@
 
 - (void)showDeleteButton
 {
-    delbutton = [[UIButton alloc] initWithFrame:CGRectMake(250, 0, 40, 40)];
+    delbutton = [[UIButton alloc] initWithFrame:CGRectMake(280, 5, 30, 30)];
     delbutton.alpha = 0;
     delbutton.backgroundColor = [UIColor redColor];
-    delbutton.layer.cornerRadius = 20;
-  //  [priorityHighBtn addTarget:self action:@selector(addNewItem:) forControlEvents:UIControlEventTouchUpInside];
+    delbutton.layer.cornerRadius = 15;
+    [delbutton addTarget:self action:@selector(pressDeleteButton) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:delbutton];
     
     delLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, delbutton.frame.size.width, delbutton.frame.size.height)];
@@ -124,16 +145,27 @@
   //  delLabel.text = @"Delete";
     [delbutton addSubview:delLabel];
     
-    [MOVE animateView:self.bgView properties:@{@"delete":@-40, @"duration":@0.5}];
+//    [MOVE animateView:self.bgView properties:@{@"x":@-40, @"duration":@0.5}];
     
-    [MOVE animateView:delbutton properties:@{@"alpha":@1, @"duration":@0.2, @"delay":@0.1}];
+    [MOVE animateView:delbutton properties:@{@"alpha":@1, @"duration":@0.2, @"delay":@0.3}];
 }
+
+- (void) pressPriorityButton:(id) sender
+{
+    UIButton * button = (UIButton *)sender;
+    [self.delegate setItemPriority:(int)button.tag withItem:self];
+}
+
+- (void) pressDeleteButton
+{
+    [self.delegate deleteItem:self];
+}
+
 
 - (void)hideDeleteButton
 {
-    [MOVE animateView:self.bgView properties:@{@"delete" : @10, @"duration" : @0.5}];
     
-    [MOVE animateView:delbutton properties:@{@"alpha":@0, @"duration":@0.2, @"delay":@0.2, @"remove":@YES}];
+    [MOVE animateView:delbutton properties:@{@"alpha":@0, @"duration":@0.2, @"delay":@0., @"remove":@YES}];
 }
 
 

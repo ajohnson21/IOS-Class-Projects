@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDLTableViewCell.h"
 
 
-@interface TDLTableViewController : UITableViewController <UITextFieldDelegate, UITableViewDataSource>
+
+@interface TDLTableViewController : UITableViewController <UITextFieldDelegate, TDLTableViewCellDelegate>
 @property (nonatomic) NSDictionary * taskInfo;
 
 

@@ -75,7 +75,6 @@
         headerbutton1.backgroundColor = YELLOW_COLOR;
         [headerbutton1 setTitle:@"" forState:UIControlStateNormal];
         [headerbutton1 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
-        headerbutton1.backgroundColor = [UIColor greenColor];
         headerbutton1.layer.cornerRadius = 15;
         
         [self.tableView.tableHeaderView addSubview:headerbutton1];
@@ -95,17 +94,54 @@
         [headerbutton3 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];        headerbutton3.layer.cornerRadius = 15;
         
         [self.tableView.tableHeaderView addSubview:headerbutton3];
-     
-    
+        
+        
         
     }
     return self;
     
 }
 
+-(void)deleteItem:(TDLTableViewCell *)cell
+{
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    
+    [todoItems removeObjectAtIndex:indexPath.row];
+    cell.alpha = 0;
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+}
 
+-(void)setItemPriority:(int)priority withItem:(TDLTableViewCell *)cell
+{
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    
+    NSDictionary * listItem = todoItems[indexPath.row];
 
+    
+    NSDictionary * updateListItem = @{
+                                      @"name": listItem[@"name"],
+                                      @"priority" : @(priority),
+                                      @"filler" : @(priority)
+                                      };
+    // remove dictionary for cell
+    [todoItems removeObjectAtIndex:indexPath.row];
+    
+    // add new dictionary for cell
+    [todoItems insertObject:updateListItem atIndex:indexPath.row];
 
+    
+    NSLog(@"Priority: %d", priority);
+    
+    cell.bgView.backgroundColor = priorityColors[priority];
+    
+    [MOVE animateView:cell.bgView properties:@{@"x": @10,
+                                               @"duration": @0.5
+                                               }];
+    [cell hideCircleButtons];
+    
+    
+}
 
 - (void)addNewItem:(id)sender
 {
@@ -132,9 +168,7 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField
 {
-    [self addNewItem:nil];
-    nameField.text = @"";
-    textField.placeholder = @" Enter to do item";
+    [textField resignFirstResponder];
     
     return YES;
 }
@@ -168,9 +202,16 @@
     TDLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) cell = [[TDLTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" ];
+    
+    [cell resetLayout];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    cell.delegate = self;
+    
+ //   NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    
     NSDictionary * listItem = todoItems[indexPath.row];
+    
     
     cell.nameLabel.text = listItem[@"name"];
     cell.bgView.backgroundColor = priorityColors[[listItem[@"priority"] intValue]];
@@ -211,7 +252,7 @@
     }
     
     cell.bgView.backgroundColor = priorityColors[0];
-
+    
     
     int newPriority = 1;
     
@@ -247,9 +288,30 @@
     //  NSLog(@"%@", gesture);
     TDLTableViewCell * cell = (TDLTableViewCell *)gesture.view;
     
-    // NSInteger index = [self.tableView indexPathForCell:cell].row;
+    NSInteger index = [self.tableView indexPathForCell:cell].row;
     
-    switch (gesture.direction) {
+    //    gesture.direction == left: 2
+    //    gesture.direction == right: 1
+    //    gresture.direction == left && priorityColors = 0: 12
+    //    gesture.direction == right && priorityColors = 0: 11
+    
+    NSDictionary * listItem = todoItems[index];
+    
+    int completed;
+    //
+    //    if ([listItem[@"priority"] intValue] ==0)
+    //    {
+    //        completed = 1;
+    //    }
+    //    else
+    //    {
+    //        completed = 0;
+    //    }
+    
+    
+    completed = ([listItem[@"priority"] intValue] ==0) ? 10 : 0;
+    switch (gesture.direction + completed)
+    {
         case 1:
             NSLog(@"swiping right");
             
@@ -259,6 +321,7 @@
             [cell hideCircleButtons];
             cell.swiped = NO;
             break;
+            
         case 2:
             NSLog(@"swiping left");
             
@@ -272,6 +335,23 @@
             
         default:
             break;
+            
+        case 11:
+            [MOVE animateView:cell.bgView properties:@{@"x": @10,
+                                                       @"duration": @0.5
+                                                       }];
+            [cell hideDeleteButton];
+            break;
+            
+        case 12:
+            [MOVE animateView:cell.bgView properties:@{@"x": @-25,
+                                                       @"duration": @0.5
+                                                       }];
+            [cell showDeleteButton];
+            
+            break;
+            
+            
             
     }
     
