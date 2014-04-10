@@ -16,6 +16,8 @@
     UIButton * headerbutton1;
     UIButton * headerbutton2;
     UIButton * headerbutton3;
+    UIButton * delbutton;
+    UILabel*  delLabel;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -74,7 +76,8 @@
     
     headerbutton2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 0, 30, 30)];
     headerbutton2.tag = 2;
-    headerbutton2.alpha = 0;    headerbutton2.backgroundColor = [UIColor yellowColor];
+    headerbutton2.alpha = 0;
+    headerbutton2.backgroundColor = [UIColor yellowColor];
     [headerbutton2 setTitle:@"" forState:UIControlStateNormal];
     //  [headerbutton2 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
     headerbutton2.layer.cornerRadius = 15;
@@ -83,7 +86,8 @@
     
     headerbutton3 = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 30, 30)];
     headerbutton3.tag = 3;
-    headerbutton3.alpha = 0;    headerbutton3.backgroundColor = [UIColor redColor];
+    headerbutton3.alpha = 0;
+    headerbutton3.backgroundColor = [UIColor redColor];
     [headerbutton3 setTitle:@"" forState:UIControlStateNormal];
     //  [headerbutton3 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];
     headerbutton3.layer.cornerRadius = 15;
@@ -103,6 +107,39 @@
     [MOVE animateView:headerbutton3
            properties:@{@"alpha":@0,@"duration":@0.2,@"delay":@0.2,@"remove":@YES}];
 }
+
+- (void)showDeleteButton
+{
+    delbutton = [[UIButton alloc] initWithFrame:CGRectMake(250, 0, 40, 40)];
+    delbutton.alpha = 0;
+    delbutton.backgroundColor = [UIColor redColor];
+    delbutton.layer.cornerRadius = 20;
+  //  [priorityHighBtn addTarget:self action:@selector(addNewItem:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:delbutton];
+    
+    delLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, delbutton.frame.size.width, delbutton.frame.size.height)];
+    delLabel.textColor = [UIColor whiteColor];
+    delLabel.textAlignment = NSTextAlignmentCenter;
+    delLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:30];
+  //  delLabel.text = @"Delete";
+    [delbutton addSubview:delLabel];
+    
+    [MOVE animateView:self.bgView properties:@{@"delete":@-40, @"duration":@0.5}];
+    
+    [MOVE animateView:delbutton properties:@{@"alpha":@1, @"duration":@0.2, @"delay":@0.1}];
+}
+
+- (void)hideDeleteButton
+{
+    [MOVE animateView:self.bgView properties:@{@"delete" : @10, @"duration" : @0.5}];
+    
+    [MOVE animateView:delbutton properties:@{@"alpha":@0, @"duration":@0.2, @"delay":@0.2, @"remove":@YES}];
+}
+
+
+
+
+
 
 - (void)setProfileInfo:(NSDictionary *) todoInfo
 

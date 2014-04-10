@@ -22,7 +22,8 @@
     UIButton * headerbutton1;
     UIButton * headerbutton2;
     UIButton * headerbutton3;
-    
+    UIButton* deleteBtn;
+    UILabel* deleteLabel;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -94,11 +95,17 @@
         [headerbutton3 addTarget:self action:@selector(addNewItem:) forControlEvents: UIControlEventTouchUpInside];        headerbutton3.layer.cornerRadius = 15;
         
         [self.tableView.tableHeaderView addSubview:headerbutton3];
+     
+    
         
     }
     return self;
     
 }
+
+
+
+
 
 - (void)addNewItem:(id)sender
 {
@@ -194,7 +201,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TDLTableViewCell * cell = (TDLTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.bgView.backgroundColor = priorityColors[0];
     
     //    cell.strikeThrough.alpha = 1;
     //    cell.circleButton.alpha = 0;
@@ -204,6 +210,8 @@
         return;
     }
     
+    cell.bgView.backgroundColor = priorityColors[0];
+
     
     int newPriority = 1;
     
@@ -249,7 +257,7 @@
                                                        @"duration": @0.5
                                                        }];
             [cell hideCircleButtons];
-            (cell.swiped = NO);
+            cell.swiped = NO;
             break;
         case 2:
             NSLog(@"swiping left");
@@ -258,7 +266,7 @@
                                                        @"duration": @0.5
                                                        }];
             [cell showCircleButtons];
-            (cell.swiped = YES);
+            cell.swiped = YES;
             break;
             
             
