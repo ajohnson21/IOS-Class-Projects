@@ -145,6 +145,23 @@
     [self.view addSubview:backButton];
 
     gameBoard = [[UIView alloc] initWithFrame:self.view.frame];
+    gameBoard.backgroundColor = [UIColor yellowColor];
+    
+    UILabel * count1 = [[UILabel alloc] initWithFrame:CGRectMake(30, 400, 100, 40)];
+    count1.backgroundColor = [UIColor yellowColor];
+    count1.text = @"Red Count =";
+    count1.textColor = [UIColor redColor];
+    count1.font = [UIFont fontWithName:@"HoeflerText-Italic" size:16];
+    [gameBoard addSubview:count1];
+    
+    UILabel * count2 = [[UILabel alloc] initWithFrame:CGRectMake(200, 400, 100, 40)];
+    count2.backgroundColor = [UIColor yellowColor];
+    count2.text = @"Blue Count =";
+    count2.textColor = [UIColor blueColor];
+    count2.font = [UIFont fontWithName:@"HoeflerText-Italic" size:16];
+    [gameBoard addSubview:count2];
+    
+    
     
     [self.view insertSubview:gameBoard belowSubview:backButton];
     
