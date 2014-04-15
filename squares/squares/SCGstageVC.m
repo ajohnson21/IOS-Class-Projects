@@ -24,6 +24,8 @@
     UIButton * sizeButton1;
     UIButton * sizeButton2;
     UIButton * sizeButton3;
+    NSInteger * counter1;
+    NSInteger * counter2;
 //    UIView * home;
 }
 
@@ -37,7 +39,6 @@
         playerTurn = 0;
         tappedDots = [@{} mutableCopy];
         allSquares = [@{} mutableCopy];
-        
         gameSize = 6;
     }
     return self;
@@ -49,6 +50,17 @@
     
     [super viewDidLoad];
     
+//    NSArray* gameSizeArray = @[@4,@8,@12];
+//    UISegmentedControl * segmentedSizeBtn = [[UISegmentedControl alloc] initWithItems:gameSizeArray];
+//    segmentedSizeBtn.frame = CGRectMake(50, 350, 100, 40);
+//    segmentedSizeBtn.segmentedControlStyle = UISegmentedControlStylePlain;
+//    [segmentedSizeBtn addTarget:self action:@selector(gameSizeChange1) forControlEvents: UIControlEventValueChanged];
+//    segmentedSizeBtn.selectedSegmentIndex = 1;
+//    segmentedSizeBtn.backgroundColor = [UIColor blackColor];
+//    segmentedSizeBtn.layer.cornerRadius = 6;
+////    segmentedSizeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+////    [segmentedSizeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.view addSubview:segmentedSizeBtn];
     
     sizeButton1 = [[UIButton alloc] initWithFrame:CGRectMake(50, 400, 100, 40)];
     [sizeButton1 setTitle:@"6" forState:UIControlStateNormal];
@@ -151,14 +163,14 @@
     count1.backgroundColor = [UIColor yellowColor];
     count1.text = @"Red Count =";
     count1.textColor = [UIColor redColor];
-    count1.font = [UIFont fontWithName:@"HoeflerText-Italic" size:16];
+    count1.font = [UIFont fontWithName:@"HoeflerText-Italic" size:12];
     [gameBoard addSubview:count1];
     
     UILabel * count2 = [[UILabel alloc] initWithFrame:CGRectMake(200, 400, 100, 40)];
     count2.backgroundColor = [UIColor yellowColor];
     count2.text = @"Blue Count =";
     count2.textColor = [UIColor blueColor];
-    count2.font = [UIFont fontWithName:@"HoeflerText-Italic" size:16];
+    count2.font = [UIFont fontWithName:@"HoeflerText-Italic" size:12];
     [gameBoard addSubview:count2];
     
     
@@ -209,6 +221,7 @@
             tappedDots[key] = @2;
             
             [gameBoard addSubview:circle];
+            
             
             
         }
@@ -279,6 +292,7 @@
             {
                 SCGSquare * currentSquare = allSquares[topLeftDot];
                 currentSquare.backgroundColor = color;
+                
                 // player owns square
             }
         };

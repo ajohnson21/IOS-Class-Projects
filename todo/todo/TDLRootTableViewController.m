@@ -13,7 +13,9 @@
 @implementation TDLRootTableViewController
 
 {
-    NSMutableArray *listItems;
+    NSInteger * counter1;
+    NSInteger * counter2;
+    NSMutableArray * listItems;
     UITextField * nameField;
 }
 
