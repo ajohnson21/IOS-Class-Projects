@@ -20,6 +20,7 @@
 		C8971A9418FA11A300FCD844 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8971A9218FA11A300FCD844 /* InfoPlist.strings */; };
 		C8971A9618FA11A300FCD844 /* Twitter_Feed_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8971A9518FA11A300FCD844 /* Twitter_Feed_AppTests.m */; };
 		C8971AA118FA126200FCD844 /* TFAVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8971AA018FA126200FCD844 /* TFAVC.m */; };
+		C8971AA418FC0E0300FCD844 /* TFATVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8971AA318FC0E0300FCD844 /* TFATVCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		C8971A9518FA11A300FCD844 /* Twitter_Feed_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Twitter_Feed_AppTests.m; sourceTree = "<group>"; };
 		C8971A9F18FA126200FCD844 /* TFAVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFAVC.h; sourceTree = "<group>"; };
 		C8971AA018FA126200FCD844 /* TFAVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFAVC.m; sourceTree = "<group>"; };
+		C8971AA218FC0E0300FCD844 /* TFATVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFATVCell.h; sourceTree = "<group>"; };
+		C8971AA318FC0E0300FCD844 /* TFATVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFATVCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				C8971A9F18FA126200FCD844 /* TFAVC.h */,
 				C8971AA018FA126200FCD844 /* TFAVC.m */,
 				C8971A7718FA11A300FCD844 /* Supporting Files */,
+				C8971AA218FC0E0300FCD844 /* TFATVCell.h */,
+				C8971AA318FC0E0300FCD844 /* TFATVCell.m */,
 			);
 			path = "Twitter Feed App";
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				C8971AA118FA126200FCD844 /* TFAVC.m in Sources */,
 				C8971A8118FA11A300FCD844 /* TFAAppDelegate.m in Sources */,
 				C8971A7D18FA11A300FCD844 /* main.m in Sources */,
+				C8971AA418FC0E0300FCD844 /* TFATVCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +452,7 @@
 				C8971A9B18FA11A300FCD844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8971A9C18FA11A300FCD844 /* Build configuration list for PBXNativeTarget "Twitter Feed AppTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +461,7 @@
 				C8971A9E18FA11A300FCD844 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -216,7 +216,7 @@
     }
     else
     {
-        NSLog(@"not enough date");
+        NSLog(@"not enough data");
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Bad Information" message:@"Unable to add user" delegate:self cancelButtonTitle:@"Try again" otherButtonTitles:nil];
         [alertview show];

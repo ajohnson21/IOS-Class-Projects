@@ -18,6 +18,13 @@
     int playerTurn;
     NSMutableDictionary * tappedDots;
     NSMutableDictionary * allSquares;
+    UIView * gameBoard;
+    UIButton * backButton;
+    UIButton * newGame;
+    UIButton * sizeButton1;
+    UIButton * sizeButton2;
+    UIButton * sizeButton3;
+//    UIView * home;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,15 +37,116 @@
         playerTurn = 0;
         tappedDots = [@{} mutableCopy];
         allSquares = [@{} mutableCopy];
+        
+        gameSize = 6;
     }
     return self;
 }
 
+
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
-    gameSize = 4;
+    
+    sizeButton1 = [[UIButton alloc] initWithFrame:CGRectMake(40, 400, 100, 40)];
+    [sizeButton1 setTitle:@"6" forState:UIControlStateNormal];
+    [sizeButton1 addTarget:self action:@selector(gameSizeChange1) forControlEvents: UIControlEventTouchUpInside];
+    sizeButton1.backgroundColor = [UIColor blackColor];
+    sizeButton1.layer.cornerRadius = 6;
+    sizeButton1.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [sizeButton1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:sizeButton1];
+    
+    sizeButton2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 40)];
+    [sizeButton2 setTitle:@"8" forState:UIControlStateNormal];
+    [sizeButton2 addTarget:self action:@selector(gameSizeChange2) forControlEvents: UIControlEventTouchUpInside];
+    sizeButton2.backgroundColor = [UIColor blackColor];
+    sizeButton2.layer.cornerRadius = 6;
+    sizeButton2.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [sizeButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:sizeButton2];
+    
+    sizeButton3 = [[UIButton alloc] initWithFrame:CGRectMake(160, 400, 100, 40)];
+    [sizeButton3 setTitle:@"12" forState:UIControlStateNormal];
+    [sizeButton3 addTarget:self action:@selector(gameSizeChange3) forControlEvents: UIControlEventTouchUpInside];
+    sizeButton3.backgroundColor = [UIColor blackColor];
+    sizeButton3.layer.cornerRadius = 6;
+    sizeButton3.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [sizeButton3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:sizeButton3];
+
+    
+    newGame = [[UIButton alloc] initWithFrame:CGRectMake(110, 400, 100, 40)];
+    [newGame setTitle:@"New Game" forState:UIControlStateNormal];
+    [newGame addTarget:self action:@selector(resetNewGame) forControlEvents: UIControlEventTouchUpInside];
+    newGame.backgroundColor = [UIColor blackColor];
+    newGame.layer.cornerRadius = 6;
+    newGame.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [newGame setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.view addSubview:newGame];
+    
+    backButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 80, 20)];
+    [backButton setTitle:@"Back" forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(goHome) forControlEvents: UIControlEventTouchUpInside];
+    backButton.backgroundColor = [UIColor blackColor];
+    backButton.layer.cornerRadius = 6;
+    backButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    
+    
+}
+
+-(void)gameSizeChange1
+{
+    gameSize = 6;
+    [sizeButton1 removeFromSuperview];
+    [sizeButton2 removeFromSuperview];
+    [sizeButton3 removeFromSuperview];
+    [self.view addSubview:newGame];
+}
+
+-(void)gameSizeChange2
+{
+    gameSize = 8;
+    [sizeButton1 removeFromSuperview];
+    [sizeButton2 removeFromSuperview];
+    [sizeButton3 removeFromSuperview];
+    [self.view addSubview:newGame];
+}
+
+-(void)gameSizeChange3
+{
+    gameSize = 12;
+    [sizeButton1 removeFromSuperview];
+    [sizeButton2 removeFromSuperview];
+    [sizeButton3 removeFromSuperview];
+    [self.view addSubview:newGame];
+}
+
+
+
+-(void)goHome
+{
+    [gameBoard removeFromSuperview];
+    [backButton removeFromSuperview];
+    [self.view addSubview:newGame];
+    [self.view addSubview:sizeButton1];
+    [self.view addSubview:sizeButton2];
+    [self.view addSubview:sizeButton3];
+//    [self.view addSubview:newGame];
+}
+
+
+-(void)resetNewGame
+{
+    [self.view addSubview:backButton];
+
+    gameBoard = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    [self.view insertSubview:gameBoard belowSubview:backButton];
     
     float circleWidth = SCREEN_WIDTH / gameSize;
     float squareWidth = circleWidth / 2 ;
@@ -53,12 +161,14 @@
             
             SCGSquare * square = [[SCGSquare alloc] initWithFrame:CGRectMake(squareX, squareY, squareWidth, squareWidth)];
             square.backgroundColor = [UIColor lightGrayColor];
+            square.layer.cornerRadius = 5;
             
             NSString * key = [NSString stringWithFormat:@"c%dr%d", sCol,sRow];
             
             allSquares[key] = square;
             
-            [self.view addSubview:square];
+            [gameBoard addSubview:square];
+            [newGame removeFromSuperview];
         }
     }
     
@@ -81,13 +191,17 @@
             
             tappedDots[key] = @2;
             
-            [self.view addSubview:circle];
+            [gameBoard addSubview:circle];
+            
+            
         }
     }
+    
 }
 
 - (UIColor *)circleTappedWithgPosition:(CGPoint)position
 {
+    
     // get tappedDots key from position
     NSString * key = [NSString stringWithFormat:@"c%dr%d",(int)position.x, (int)position.y];
     
@@ -236,6 +350,7 @@
     }
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {

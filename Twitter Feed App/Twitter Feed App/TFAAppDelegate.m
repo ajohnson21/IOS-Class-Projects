@@ -16,7 +16,6 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    TFAVC * rootViewController = [[TFAVC alloc] initWithStyle:UITableViewStylePlain];
     self.window.rootViewController = [[TFAVC alloc] initWithStyle:UITableViewStylePlain];
     
     self.window.backgroundColor = [UIColor whiteColor];
