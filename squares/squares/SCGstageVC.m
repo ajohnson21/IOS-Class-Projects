@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     
-    sizeButton1 = [[UIButton alloc] initWithFrame:CGRectMake(40, 400, 100, 40)];
+    sizeButton1 = [[UIButton alloc] initWithFrame:CGRectMake(50, 400, 100, 40)];
     [sizeButton1 setTitle:@"6" forState:UIControlStateNormal];
     [sizeButton1 addTarget:self action:@selector(gameSizeChange1) forControlEvents: UIControlEventTouchUpInside];
     sizeButton1.backgroundColor = [UIColor blackColor];
@@ -59,7 +59,7 @@
     [sizeButton1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:sizeButton1];
     
-    sizeButton2 = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 40)];
+    sizeButton2 = [[UIButton alloc] initWithFrame:CGRectMake(110, 400, 100, 40)];
     [sizeButton2 setTitle:@"8" forState:UIControlStateNormal];
     [sizeButton2 addTarget:self action:@selector(gameSizeChange2) forControlEvents: UIControlEventTouchUpInside];
     sizeButton2.backgroundColor = [UIColor blackColor];
@@ -68,7 +68,7 @@
     [sizeButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:sizeButton2];
     
-    sizeButton3 = [[UIButton alloc] initWithFrame:CGRectMake(160, 400, 100, 40)];
+    sizeButton3 = [[UIButton alloc] initWithFrame:CGRectMake(170, 400, 100, 40)];
     [sizeButton3 setTitle:@"12" forState:UIControlStateNormal];
     [sizeButton3 addTarget:self action:@selector(gameSizeChange3) forControlEvents: UIControlEventTouchUpInside];
     sizeButton3.backgroundColor = [UIColor blackColor];
@@ -79,7 +79,7 @@
 
     
     newGame = [[UIButton alloc] initWithFrame:CGRectMake(110, 400, 100, 40)];
-    [newGame setTitle:@"New Game" forState:UIControlStateNormal];
+    [newGame setTitle:@"Play" forState:UIControlStateNormal];
     [newGame addTarget:self action:@selector(resetNewGame) forControlEvents: UIControlEventTouchUpInside];
     newGame.backgroundColor = [UIColor blackColor];
     newGame.layer.cornerRadius = 6;
