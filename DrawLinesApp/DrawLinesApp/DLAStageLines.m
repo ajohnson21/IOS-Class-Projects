@@ -19,8 +19,10 @@
     if (self) {
         // Initialization code
         lines = [@[] mutableCopy];
-        self.backgroundColor = [UIColor redColor];
         
+        self.lineWidth = 2.0;
+        self.lineColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
@@ -30,8 +32,6 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
- 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     [[UIColor blackColor] set];
@@ -40,8 +40,6 @@
     CGContextSetLineCap(context, kCGLineCapRound);
     
     for (NSDictionary * line in lines)
-        
-        
     {
         CGContextSetLineWidth(context, [line[@"width"] floatValue]);
         
@@ -53,45 +51,36 @@
         CGContextMoveToPoint(context, start.x, start.y);
         CGContextAddLineToPoint(context, end.x, end.y);
         CGContextStrokePath(context);
-        
     }
-    
-    
-
 }
 
 -(void)undo
 {
+    NSLog(@"lines undo");
     [lines removeLastObject];
     [self setNeedsDisplay];
 }
 
 -(void)clearStage
 {
+    NSLog(@"Lines clear");
     [lines removeAllObjects];
     [self setNeedsDisplay];
 }
 
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    for (UITouch * touch in touches)
-    {
+{    
+    for (UITouch * touch in touches) {
         CGPoint location = [touch locationInView:self];
-
-        [lines addObject:[@[
-                           [NSValue valueWithCGPoint:location],
-                           [NSValue valueWithCGPoint:location]
-                           ] mutableCopy]];
-    }
-    
-        for (UITouch * touch in touches) {
-            CGPoint location = [touch locationInView:self];
-            [lines addObject:[@{
-                                    @"color": self.lineColor,
-                                    @"width": @(self.lineWidth),
-                                    @"points": [@[[NSValue valueWithCGPoint:location]] mutableCopy]
-                                    } mutableCopy]];
+        [lines addObject:[@{
+                            @"color": self.lineColor,
+                            @"width": @(self.lineWidth),
+                            @"points": [@[
+                                          [NSValue valueWithCGPoint:location],
+                                          [NSValue valueWithCGPoint:location]
+                                          ] mutableCopy]
+                            } mutableCopy]];
         
         NSLog(@"Touch X: %f Y %f", location.x,location.y);
         [self setNeedsDisplay];
@@ -109,7 +98,7 @@
         NSLog(@"Touch X: %f Y %f", location.x,location.y);
         [self setNeedsDisplay];
     }
-
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -119,11 +108,11 @@
         CGPoint location = [touch locationInView:self];
         
         [lines lastObject][@"points"][1] = [NSValue valueWithCGPoint:location];
-
+        
         NSLog(@"Touch X: %f Y %f", location.x,location.y);
         [self setNeedsDisplay];
     }
-
+    
 }
 
 
