@@ -382,6 +382,10 @@
     
 }
 
+-(void)checkQuadrantForPosition:(CGPoint)position
+{
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

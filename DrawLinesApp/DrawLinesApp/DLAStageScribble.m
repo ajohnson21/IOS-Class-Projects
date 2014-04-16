@@ -64,7 +64,7 @@
 //        [colorButtonBlue setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //        [self addSubview:colorButtonBlue];
         
-        slider = [[UISlider alloc] initWithFrame:CGRectMake(20, 320, 280, 40)];
+        slider = [[UISlider alloc] initWithFrame:CGRectMake(20, 460, 280, 10)];
         slider.backgroundColor = [UIColor greenColor];
         slider.layer.cornerRadius = 5;
         slider.minimumValue = 2;
@@ -90,15 +90,52 @@
             button.backgroundColor = color;
             [button addTarget:self action:@selector(changeLineColor:) forControlEvents:UIControlEventTouchUpInside];
             [colorDrawer addSubview:button];
+            
+//            UIButton * toggle = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 120, 50, 50, 50)];
+//            toggle.backgroundColor = [UIColor redColor];
+//            [toggle addTarget:self action:@selector(toggleStage) forControlEvents:
+//             UIControlEventTouchUpInside];
+//            [self addSubview:toggle];
+            
+//            
+//            UIButton * clearButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 50, 50, 50)];
+//            clearButton.backgroundColor = [UIColor lightGrayColor];
+//            [toggle addTarget:self action:@selector(clearStage) forControlEvents:
+//            UIControlEventTouchUpInside];
+//            [self addSubview:clearButton];
+//            
+//            UIButton * undoButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 50, 50, 50)];
+//            undoButton.backgroundColor = [UIColor lightGrayColor];
+//            [toggle addTarget:self action:@selector(clearStage) forControlEvents:
+//             UIControlEventTouchUpInside];
+//            [self addSubview:undoButton];
+            
+            
         }
         
         [self addSubview:colorDrawer];
-
+        
     }
     return self;
 }
 
-// scribbles or lines, add properties to uiview. 1 will be int linewidth 2nd will be linecolor. in view controller will add a subview...slider control and 3 uibuttons squares & color. slider changes linewidth. button changes color. Overwrite setters. run self setneedsdisplay
+//-(void)clearStage
+//{
+//
+//}
+
+//-(void)toggleStage
+//{
+
+//    [sribbleView removeFromSuperview];
+
+//    if ([scribbleView isMemberOfClass:[DLAStageScribble class]])
+//    {
+//        scribbleView = [DLAStageScribble alloc] initWithFrame:[self.view.frame];
+//    }else {
+//        [[DLAStageScribble alloc] initWithFrame:self.view.frame];
+//    }
+//}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -149,6 +186,18 @@
     }
 }
 
+-(void)undo
+{
+    [scribbles removeLastObject];
+    [self setNeedsDisplay];
+}
+
+-(void)clearStage
+{
+    [scribbles removeAllObjects];
+    [self setNeedsDisplay];
+}
+
 -(void)setLineWidth:(float)lineWidth
 {
     _lineWidth = lineWidth;
@@ -173,7 +222,7 @@
     for (UITouch * touch in touches)
     {
         CGPoint location = [touch locationInView:self];
-        [[scribbles lastObject][@"points"] addObject:[NSValue valueWithCGPoint:location]];
+        [[scribbles lastObject][@"points"][1] addObject:[NSValue valueWithCGPoint:location]];
     }
     [self setNeedsDisplay];
 }
