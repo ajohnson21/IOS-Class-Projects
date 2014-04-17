@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82FB13718FFFC9400DBE056 /* DeleteRed.png in Resources */ = {isa = PBXBuildFile; fileRef = C82FB13618FFFC9400DBE056 /* DeleteRed.png */; };
+		C82FB13B190002CF00DBE056 /* draw_eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = C82FB13A190002CF00DBE056 /* draw_eraser.png */; };
 		C854D08A18FD673B00F74120 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C854D08918FD673B00F74120 /* Foundation.framework */; };
 		C854D08C18FD673B00F74120 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C854D08B18FD673B00F74120 /* CoreGraphics.framework */; };
 		C854D08E18FD673B00F74120 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C854D08D18FD673B00F74120 /* UIKit.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C82FB13618FFFC9400DBE056 /* DeleteRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeleteRed.png; sourceTree = "<group>"; };
+		C82FB13A190002CF00DBE056 /* draw_eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw_eraser.png; sourceTree = "<group>"; };
 		C854D08618FD673B00F74120 /* DrawLinesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawLinesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C854D08918FD673B00F74120 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C854D08B18FD673B00F74120 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,9 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C82FB13318FFF8DE00DBE056 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				C82FB13A190002CF00DBE056 /* draw_eraser.png */,
+				C82FB13618FFFC9400DBE056 /* DeleteRed.png */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
 		C854D07D18FD673B00F74120 = {
 			isa = PBXGroup;
 			children = (
+				C82FB13318FFF8DE00DBE056 /* Pictures */,
 				C854D08F18FD673B00F74120 /* DrawLinesApp */,
 				C854D0A818FD673B00F74120 /* DrawLinesAppTests */,
 				C854D08818FD673B00F74120 /* Frameworks */,
@@ -236,7 +250,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C854D09418FD673B00F74120 /* InfoPlist.strings in Resources */,
+				C82FB13B190002CF00DBE056 /* draw_eraser.png in Resources */,
 				C854D09C18FD673B00F74120 /* Images.xcassets in Resources */,
+				C82FB13718FFFC9400DBE056 /* DeleteRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +472,7 @@
 				C854D0B418FD673B00F74120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C854D0B518FD673B00F74120 /* Build configuration list for PBXNativeTarget "DrawLinesAppTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +481,7 @@
 				C854D0B718FD673B00F74120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

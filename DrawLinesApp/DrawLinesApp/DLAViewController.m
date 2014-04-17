@@ -16,13 +16,15 @@
     UISlider * slider;
     NSArray * sliderrange;
     UIView * colorDrawer;
+    UIColor * lineColor;
+    float lineWidth;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //do nothing so long
+        
     }
     return self;
 }
@@ -30,18 +32,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    scribbleView = [[DLAStageLines alloc] initWithFrame:self.view.frame];
+
+    lineColor = [UIColor purpleColor];
+    lineWidth = 5.0;
+    
+    [self toggleStage];
     [self.view addSubview:scribbleView];
     
-    //    scribbleView.lineColor = [UIColor blueColor];
-    
     slider = [[UISlider alloc] initWithFrame:CGRectMake(20, 460, 280, 10)];
-    slider.backgroundColor = [UIColor greenColor];
     slider.layer.cornerRadius = 5;
     slider.minimumValue = 2;
     slider.maximumValue = 20.0;
+    slider.value = lineWidth;
     [slider addTarget:self action:@selector(changeSizes:) forControlEvents:UIControlEventAllEvents];
+    slider.transform = CGAffineTransformMakeRotation(-90 * M_PI / 180);
+    slider.frame = CGRectMake(SCREEN_WIDTH - 315, SCREEN_HEIGHT - 390, 23, 280);
     [self.view addSubview:slider];
     
     colorDrawer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
@@ -68,23 +73,29 @@
     
     [self.view addSubview:colorDrawer];
     
-    UIButton * toggle = [[UIButton alloc] initWithFrame:CGRectMake(10, 50, 50, 50)];
-    toggle.backgroundColor = [UIColor greenColor];
-    [toggle addTarget:self action:@selector(toggleStage) forControlEvents:
-     UIControlEventTouchUpInside];
-    [self.view addSubview:toggle];
+    UISwitch * toggleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(10, 50, 50, 50)];
+//    toggleSwitch.backgroundColor = [UIColor blackColor];
+//    [toggleSwitch setTitle:@"T" forState:UIControlStateNormal];
+    [toggleSwitch addTarget:self action:@selector(toggleStage) forControlEvents: UIControlEventTouchUpInside];
+    toggleSwitch.tintColor = [UIColor redColor];
+    toggleSwitch.onTintColor = [UIColor redColor];
+    [self.view addSubview:toggleSwitch];
+
     
-    
-    UIButton * clearButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 120, 50, 50, 50)];
-    clearButton.backgroundColor = [UIColor blueColor];
+    UIButton * clearButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 55, 40, 50, 50)];
+    clearButton.backgroundColor = [UIColor clearColor];
+    [clearButton setImage:[UIImage imageNamed: @"DeleteRed.png"] forState:UIControlStateNormal];
     [clearButton addTarget:self action:@selector(clearStage) forControlEvents:
      UIControlEventTouchUpInside];
+    clearButton.layer.cornerRadius = 25;
     [self.view addSubview:clearButton];
     
-    UIButton * undoButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 60, 50, 50, 50)];
-    undoButton.backgroundColor = [UIColor lightGrayColor];
+    UIButton * undoButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 110, 40, 50, 50)];
+    undoButton.backgroundColor = [UIColor clearColor];
+    [undoButton setImage:[UIImage imageNamed: @"draw_eraser.png"] forState:UIControlStateNormal];
     [undoButton addTarget:self action:@selector(undo) forControlEvents:
      UIControlEventTouchUpInside];
+    undoButton.layer.cornerRadius = 25;
     [self.view addSubview:undoButton];
 
     
@@ -95,11 +106,14 @@
 
 -(void)changeSizes: (UISlider *) sender
 {
-    scribbleView.lineWidth = sender.value;
+    scribbleView.lineWidth = lineWidth;
+    lineWidth = sender.value;
 }
 
 -(void)toggleStage
 {
+    
+    NSMutableArray * lines = scribbleView.lines;
     
     [scribbleView removeFromSuperview];
     
@@ -112,26 +126,31 @@
         scribbleView = [[DLAStageScribble alloc] initWithFrame: self.view.frame];
     }
     
+    scribbleView.lineWidth = lineWidth;
+    scribbleView.lineColor = lineColor;
+    
+    if (lines != nil) scribbleView.lines = lines;
+    
     //TODO understand this
     [self.view insertSubview:scribbleView atIndex:0];
 }
+
+-(void)undo
+{
+    [scribbleView undo];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 -(void)changeLineColor: (UIButton *) sender
 {
     [scribbleView setLineColor:sender.backgroundColor];
-}
-
--(void)undo
-{
-    NSLog(@"undo vc");
-    [scribbleView undo];
+    lineColor = sender.backgroundColor;
 }
 
 -(void)clearStage
 {
-    NSLog(@"clear vc");
     [scribbleView clearStage];
 }
 
