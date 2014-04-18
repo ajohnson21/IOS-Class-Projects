@@ -9,7 +9,7 @@
 #import "BBAViewController.h"
 #import "BBALevelController.h"
 
-@interface BBAViewController ()
+@interface BBAViewController () <BBALevelDelegate>
 
 @end
 
@@ -17,6 +17,9 @@
 {
     BBALevelController * level;
     UIButton * startButton;
+    UILabel * scoreBoard;
+    UIView * footer;
+    UILabel * footerText;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -24,6 +27,21 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        footer = [[UIView alloc] initWithFrame:CGRectMake(0, 280, 480, 40)];
+        footer.backgroundColor = [UIColor greenColor];
+        
+        footerText = [[UILabel alloc] initWithFrame:CGRectMake(20, 280, 200, 40)];
+        footerText.textColor = [UIColor blackColor];
+//        footerText.text = @"Additional Lives  5";
+        footerText.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:footer];
+        [footer addSubview:footerText];
+        
+        scoreBoard = [[UILabel alloc] initWithFrame:CGRectMake(370, 250, 300, 100)];
+        scoreBoard.textColor = [UIColor blackColor];
+        scoreBoard.text = @"Score  0";
+        scoreBoard.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:scoreBoard];
         
         
         
@@ -32,13 +50,21 @@
     return self;
 }
 
+-(void)reduceLives:(int)lives
+{
+    footerText.text = [NSString stringWithFormat:@"Additional Lives  %d", lives];
+    [self.view addSubview:footerText];
+}
+
+- (void)addPoints:(int)points
+{
+    scoreBoard.text = [NSString stringWithFormat:@"Score  %d", points];
+    [self.view addSubview:scoreBoard];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
-    [self.view addSubview:level.view];
     
     // Do any additional setup after loading the view.
     startButton = [[UIButton alloc] initWithFrame:CGRectMake(180, 120, 140, 60)];
@@ -52,11 +78,22 @@
 
 }
 
+- (void)gameDone
+{
+    [level.view removeFromSuperview];
+    [self.view addSubview:startButton];
+}
+
 -(void)resetNewGame
 {
+    level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
+    level.delegate = self;
     
-   [level resetLevel];
+    level.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 40);
+    [self.view addSubview:level.view];
+    
     [startButton removeFromSuperview];
+    [level resetLevel];
 }
 
 - (void)didReceiveMemoryWarning

@@ -21,6 +21,9 @@
 		C82FB16E190019BF00DBE056 /* BrickBreakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB16D190019BF00DBE056 /* BrickBreakerTests.m */; };
 		C82FB17919001BC400DBE056 /* BBAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB17819001BC400DBE056 /* BBAViewController.m */; };
 		C82FB17C19001D4D00DBE056 /* BBALevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB17B19001D4D00DBE056 /* BBALevelController.m */; };
+		C82FB17F190083F500DBE056 /* MOVE.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB17E190083F500DBE056 /* MOVE.m */; };
+		C895AB941901563E007B36DC /* BaseBallB.png in Resources */ = {isa = PBXBuildFile; fileRef = C895AB931901563E007B36DC /* BaseBallB.png */; };
+		C895AB9819016EA3007B36DC /* baseball2.png in Resources */ = {isa = PBXBuildFile; fileRef = C895AB9719016EA3007B36DC /* baseball2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,10 @@
 		C82FB17819001BC400DBE056 /* BBAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAViewController.m; sourceTree = "<group>"; };
 		C82FB17A19001D4D00DBE056 /* BBALevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBALevelController.h; sourceTree = "<group>"; };
 		C82FB17B19001D4D00DBE056 /* BBALevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBALevelController.m; sourceTree = "<group>"; };
+		C82FB17D190083F500DBE056 /* MOVE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOVE.h; sourceTree = "<group>"; };
+		C82FB17E190083F500DBE056 /* MOVE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOVE.m; sourceTree = "<group>"; };
+		C895AB931901563E007B36DC /* BaseBallB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseBallB.png; sourceTree = "<group>"; };
+		C895AB9719016EA3007B36DC /* baseball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseball2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +127,7 @@
 				C82FB17A19001D4D00DBE056 /* BBALevelController.h */,
 				C82FB17B19001D4D00DBE056 /* BBALevelController.m */,
 				C82FB15A190019BF00DBE056 /* Images.xcassets */,
+				C895AB9219015626007B36DC /* Images */,
 				C82FB14F190019BF00DBE056 /* Supporting Files */,
 			);
 			path = BrickBreaker;
@@ -128,6 +136,8 @@
 		C82FB14F190019BF00DBE056 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C82FB17D190083F500DBE056 /* MOVE.h */,
+				C82FB17E190083F500DBE056 /* MOVE.m */,
 				C82FB150190019BF00DBE056 /* BrickBreaker-Info.plist */,
 				C82FB151190019BF00DBE056 /* InfoPlist.strings */,
 				C82FB154190019BF00DBE056 /* main.m */,
@@ -152,6 +162,15 @@
 				C82FB16A190019BF00DBE056 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C895AB9219015626007B36DC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C895AB9719016EA3007B36DC /* baseball2.png */,
+				C895AB931901563E007B36DC /* BaseBallB.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C895AB9819016EA3007B36DC /* baseball2.png in Resources */,
 				C82FB153190019BF00DBE056 /* InfoPlist.strings in Resources */,
+				C895AB941901563E007B36DC /* BaseBallB.png in Resources */,
 				C82FB15B190019BF00DBE056 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82FB17F190083F500DBE056 /* MOVE.m in Sources */,
 				C82FB17C19001D4D00DBE056 /* BBALevelController.m in Sources */,
 				C82FB17919001BC400DBE056 /* BBAViewController.m in Sources */,
 				C82FB159190019BF00DBE056 /* BBAAppDelegate.m in Sources */,
@@ -450,6 +472,7 @@
 				C82FB173190019BF00DBE056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C82FB174190019BF00DBE056 /* Build configuration list for PBXNativeTarget "BrickBreakerTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +481,7 @@
 				C82FB176190019BF00DBE056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
