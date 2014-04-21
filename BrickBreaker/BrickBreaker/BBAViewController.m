@@ -19,6 +19,8 @@
     UIButton * startButton;
     UILabel * scoreBoard;
     UIView * footer;
+//    int lives;
+//    int points;
     UILabel * footerText;
 }
 
@@ -28,7 +30,7 @@
     if (self)
     {
         footer = [[UIView alloc] initWithFrame:CGRectMake(0, 280, 480, 40)];
-        footer.backgroundColor = [UIColor greenColor];
+        footer.backgroundColor = [UIColor clearColor];
         
         footerText = [[UILabel alloc] initWithFrame:CGRectMake(20, 280, 200, 40)];
         footerText.textColor = [UIColor blackColor];
@@ -75,8 +77,26 @@
     startButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     [startButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:startButton];
+    
+//    NSUserDefaults * userDefaults = [NSUser standardUserDefaults];
+//    topScore = [[userDefaults objectFor@"topScore"] intValue];
 
 }
+
+//-(void)updatePoints:(int)points
+//{
+//    footer.scoreBoard = points;
+//    if (footer.scoreBoard > topScore)
+//    {
+//        topScore = footer.scoreBoard;
+//        newHighScore = YES;
+//    
+//    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+//    [userDefaults setObject:@(topScore) forKey:@"topScore"];
+//    
+//    [userDefaults synchronize];
+//    }
+//}
 
 - (void)gameDone
 {
@@ -101,16 +121,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

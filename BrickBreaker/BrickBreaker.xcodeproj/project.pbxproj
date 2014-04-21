@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C804DA8519054E190004582C /* baseball2.png in Resources */ = {isa = PBXBuildFile; fileRef = C804DA8419054E190004582C /* baseball2.png */; };
 		C82FB149190019BF00DBE056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB148190019BF00DBE056 /* Foundation.framework */; };
 		C82FB14B190019BF00DBE056 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB14A190019BF00DBE056 /* CoreGraphics.framework */; };
 		C82FB14D190019BF00DBE056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB14C190019BF00DBE056 /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		C82FB17C19001D4D00DBE056 /* BBALevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB17B19001D4D00DBE056 /* BBALevelController.m */; };
 		C82FB17F190083F500DBE056 /* MOVE.m in Sources */ = {isa = PBXBuildFile; fileRef = C82FB17E190083F500DBE056 /* MOVE.m */; };
 		C895AB941901563E007B36DC /* BaseBallB.png in Resources */ = {isa = PBXBuildFile; fileRef = C895AB931901563E007B36DC /* BaseBallB.png */; };
-		C895AB9819016EA3007B36DC /* baseball2.png in Resources */ = {isa = PBXBuildFile; fileRef = C895AB9719016EA3007B36DC /* baseball2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C804DA8419054E190004582C /* baseball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseball2.png; sourceTree = "<group>"; };
 		C82FB145190019BF00DBE056 /* BrickBreaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickBreaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82FB148190019BF00DBE056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C82FB14A190019BF00DBE056 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,7 +61,6 @@
 		C82FB17D190083F500DBE056 /* MOVE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOVE.h; sourceTree = "<group>"; };
 		C82FB17E190083F500DBE056 /* MOVE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOVE.m; sourceTree = "<group>"; };
 		C895AB931901563E007B36DC /* BaseBallB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseBallB.png; sourceTree = "<group>"; };
-		C895AB9719016EA3007B36DC /* baseball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseball2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +167,8 @@
 		C895AB9219015626007B36DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C895AB9719016EA3007B36DC /* baseball2.png */,
 				C895AB931901563E007B36DC /* BaseBallB.png */,
+				C804DA8419054E190004582C /* baseball2.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C895AB9819016EA3007B36DC /* baseball2.png in Resources */,
+				C804DA8519054E190004582C /* baseball2.png in Resources */,
 				C82FB153190019BF00DBE056 /* InfoPlist.strings in Resources */,
 				C895AB941901563E007B36DC /* BaseBallB.png in Resources */,
 				C82FB15B190019BF00DBE056 /* Images.xcassets in Resources */,

@@ -82,7 +82,6 @@
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     [self createPaddle];
-    [self createBall];
     [self createBricks];
     
     self.collider = [[UICollisionBehavior alloc] initWithItems:[self allItems]];
@@ -90,6 +89,9 @@
     self.collider.collisionDelegate = self;
     self.collider.collisionMode = UICollisionBehaviorModeEverything;
 //        self.collider.translatesReferenceBoundsIntoBoundary = YES;
+    
+    
+    [self createBall];
     
     int w = self.view.frame.size.width;
     int h = self.view.frame.size.height;
@@ -164,12 +166,22 @@
         [ball removeFromSuperview];
         [self.collider removeItem:ball];
         lives -= 1;
-        
+//        [self createBall];
         [self.delegate reduceLives:(int)lives];
-        
-        if ([self.delegate respondsToSelector:@selector(gameDone)])
+
+  // creating ifs for new balls but isnt pulling other properties
+        if (lives > 0)
         {
-            [self.delegate gameDone];
+            
+            [self createBall];
+            
+
+        } else {
+        
+            if ([self.delegate respondsToSelector:@selector(gameDone)])
+            {
+                [self.delegate gameDone];
+            }
         }
     }
 }
@@ -187,7 +199,7 @@
 {
     NSMutableArray * items = [@[self.paddle] mutableCopy];
     
-    for (UIView * item in self.balls) [items addObject:item];
+//    for (UIView * item in self.balls) [items addObject:item];
     for (UIView * item in self.bricks) [items addObject:item];
     
     return items;
@@ -228,7 +240,8 @@
             UIView * brick = [[UIView alloc] initWithFrame:CGRectMake(brickX, brickY, brickWidth, brickHeight)];
             
             brick.layer.cornerRadius = 6;
-            brick.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0];
+//            brick.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0];
+            brick.backgroundColor = [UIColor redColor];
             
             [self.view addSubview:brick];
             [self.bricks addObject:brick];
@@ -241,7 +254,7 @@
 
 -(void)createBall
 {
-    int ballcount = 4;
+    int ballcount = 1;
     
     for (int i = 0; i < ballcount; i++)
     {
@@ -249,12 +262,17 @@
         CGRect frame = self.paddle.frame;
         
         
-        ball1 = [[UIImageView alloc] initWithFrame:CGRectMake(frame.origin.x, frame.origin.y -12, 10, 10)];
+        ball1 = [[UIImageView alloc] initWithFrame:CGRectMake(frame.origin.x, frame.origin.y -50, 10, 10)];
         ball1.image = [UIImage imageNamed:@"BaseBallB.png"];
         ball1.backgroundColor = [UIColor redColor];
         ball1.layer.cornerRadius = 5;
         
         [self.view addSubview:ball1];
+        
+        [self.collider addItem:ball1];
+        [self.ballsDynamicsProperties addItem:ball1];
+        
+        
         
         // add ball to balls array
         [self.balls addObject:ball1];
@@ -263,7 +281,7 @@
         self.pusher = [[UIPushBehavior alloc] initWithItems:self.balls mode:UIPushBehaviorModeInstantaneous];
         
         
-        self.pusher.pushDirection = CGVectorMake(0.009, 0.009);
+        self.pusher.pushDirection = CGVectorMake(0.02, 0.02);
         self.pusher.active = YES;
         
         [self.animator addBehavior:self.pusher];

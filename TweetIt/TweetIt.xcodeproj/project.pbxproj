@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C804DA93190556070004582C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DA92190556070004582C /* Foundation.framework */; };
+		C804DA95190556070004582C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DA94190556070004582C /* CoreGraphics.framework */; };
+		C804DA97190556070004582C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DA96190556070004582C /* UIKit.framework */; };
+		C804DA9D190556070004582C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C804DA9B190556070004582C /* InfoPlist.strings */; };
+		C804DA9F190556070004582C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DA9E190556070004582C /* main.m */; };
+		C804DAA3190556070004582C /* TIAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DAA2190556070004582C /* TIAAppDelegate.m */; };
+		C804DAA6190556070004582C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C804DAA4190556070004582C /* Main.storyboard */; };
+		C804DAA9190556070004582C /* TIAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DAA8190556070004582C /* TIAViewController.m */; };
+		C804DAAB190556070004582C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C804DAAA190556070004582C /* Images.xcassets */; };
+		C804DAB2190556070004582C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DAB1190556070004582C /* XCTest.framework */; };
+		C804DAB3190556070004582C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DA92190556070004582C /* Foundation.framework */; };
+		C804DAB4190556070004582C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DA96190556070004582C /* UIKit.framework */; };
+		C804DABC190556070004582C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C804DABA190556070004582C /* InfoPlist.strings */; };
+		C804DABE190556070004582C /* TweetItTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DABD190556070004582C /* TweetItTests.m */; };
+		C804DAC9190556F60004582C /* TIATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DAC8190556F60004582C /* TIATableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C804DAB5190556070004582C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C804DA87190556070004582C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C804DA8E190556070004582C;
+			remoteInfo = TweetIt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C804DA8F190556070004582C /* TweetIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C804DA92190556070004582C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C804DA94190556070004582C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C804DA96190556070004582C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C804DA9A190556070004582C /* TweetIt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TweetIt-Info.plist"; sourceTree = "<group>"; };
+		C804DA9C190556070004582C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C804DA9E190556070004582C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C804DAA0190556070004582C /* TweetIt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TweetIt-Prefix.pch"; sourceTree = "<group>"; };
+		C804DAA1190556070004582C /* TIAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TIAAppDelegate.h; sourceTree = "<group>"; };
+		C804DAA2190556070004582C /* TIAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TIAAppDelegate.m; sourceTree = "<group>"; };
+		C804DAA5190556070004582C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C804DAA7190556070004582C /* TIAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TIAViewController.h; path = TweetIt/TIAViewController.h; sourceTree = "<group>"; };
+		C804DAA8190556070004582C /* TIAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TIAViewController.m; path = TweetIt/TIAViewController.m; sourceTree = "<group>"; };
+		C804DAAA190556070004582C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C804DAB0190556070004582C /* TweetItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TweetItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C804DAB1190556070004582C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C804DAB9190556070004582C /* TweetItTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TweetItTests-Info.plist"; sourceTree = "<group>"; };
+		C804DABB190556070004582C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C804DABD190556070004582C /* TweetItTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetItTests.m; sourceTree = "<group>"; };
+		C804DAC7190556F60004582C /* TIATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TIATableViewController.h; path = TweetIt/TIATableViewController.h; sourceTree = "<group>"; };
+		C804DAC8190556F60004582C /* TIATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TIATableViewController.m; path = TweetIt/TIATableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C804DA8C190556070004582C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DA95190556070004582C /* CoreGraphics.framework in Frameworks */,
+				C804DA97190556070004582C /* UIKit.framework in Frameworks */,
+				C804DA93190556070004582C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C804DAAD190556070004582C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DAB2190556070004582C /* XCTest.framework in Frameworks */,
+				C804DAB4190556070004582C /* UIKit.framework in Frameworks */,
+				C804DAB3190556070004582C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C804DA86190556070004582C = {
+			isa = PBXGroup;
+			children = (
+				C804DAC7190556F60004582C /* TIATableViewController.h */,
+				C804DAC8190556F60004582C /* TIATableViewController.m */,
+				C804DAA7190556070004582C /* TIAViewController.h */,
+				C804DAA8190556070004582C /* TIAViewController.m */,
+				C804DAA4190556070004582C /* Main.storyboard */,
+				C804DA98190556070004582C /* TweetIt */,
+				C804DAB7190556070004582C /* TweetItTests */,
+				C804DA91190556070004582C /* Frameworks */,
+				C804DA90190556070004582C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C804DA90190556070004582C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C804DA8F190556070004582C /* TweetIt.app */,
+				C804DAB0190556070004582C /* TweetItTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C804DA91190556070004582C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C804DA92190556070004582C /* Foundation.framework */,
+				C804DA94190556070004582C /* CoreGraphics.framework */,
+				C804DA96190556070004582C /* UIKit.framework */,
+				C804DAB1190556070004582C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C804DA98190556070004582C /* TweetIt */ = {
+			isa = PBXGroup;
+			children = (
+				C804DAAA190556070004582C /* Images.xcassets */,
+				C804DAA1190556070004582C /* TIAAppDelegate.h */,
+				C804DAA2190556070004582C /* TIAAppDelegate.m */,
+				C804DA99190556070004582C /* Supporting Files */,
+			);
+			path = TweetIt;
+			sourceTree = "<group>";
+		};
+		C804DA99190556070004582C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C804DA9A190556070004582C /* TweetIt-Info.plist */,
+				C804DA9B190556070004582C /* InfoPlist.strings */,
+				C804DA9E190556070004582C /* main.m */,
+				C804DAA0190556070004582C /* TweetIt-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C804DAB7190556070004582C /* TweetItTests */ = {
+			isa = PBXGroup;
+			children = (
+				C804DABD190556070004582C /* TweetItTests.m */,
+				C804DAB8190556070004582C /* Supporting Files */,
+			);
+			path = TweetItTests;
+			sourceTree = "<group>";
+		};
+		C804DAB8190556070004582C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C804DAB9190556070004582C /* TweetItTests-Info.plist */,
+				C804DABA190556070004582C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C804DA8E190556070004582C /* TweetIt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C804DAC1190556070004582C /* Build configuration list for PBXNativeTarget "TweetIt" */;
+			buildPhases = (
+				C804DA8B190556070004582C /* Sources */,
+				C804DA8C190556070004582C /* Frameworks */,
+				C804DA8D190556070004582C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TweetIt;
+			productName = TweetIt;
+			productReference = C804DA8F190556070004582C /* TweetIt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C804DAAF190556070004582C /* TweetItTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C804DAC4190556070004582C /* Build configuration list for PBXNativeTarget "TweetItTests" */;
+			buildPhases = (
+				C804DAAC190556070004582C /* Sources */,
+				C804DAAD190556070004582C /* Frameworks */,
+				C804DAAE190556070004582C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C804DAB6190556070004582C /* PBXTargetDependency */,
+			);
+			name = TweetItTests;
+			productName = TweetItTests;
+			productReference = C804DAB0190556070004582C /* TweetItTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C804DA87190556070004582C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TIA;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Austen Johnson";
+				TargetAttributes = {
+					C804DAAF190556070004582C = {
+						TestTargetID = C804DA8E190556070004582C;
+					};
+				};
+			};
+			buildConfigurationList = C804DA8A190556070004582C /* Build configuration list for PBXProject "TweetIt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C804DA86190556070004582C;
+			productRefGroup = C804DA90190556070004582C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C804DA8E190556070004582C /* TweetIt */,
+				C804DAAF190556070004582C /* TweetItTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C804DA8D190556070004582C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DAAB190556070004582C /* Images.xcassets in Resources */,
+				C804DA9D190556070004582C /* InfoPlist.strings in Resources */,
+				C804DAA6190556070004582C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C804DAAE190556070004582C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DABC190556070004582C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C804DA8B190556070004582C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DAC9190556F60004582C /* TIATableViewController.m in Sources */,
+				C804DA9F190556070004582C /* main.m in Sources */,
+				C804DAA9190556070004582C /* TIAViewController.m in Sources */,
+				C804DAA3190556070004582C /* TIAAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C804DAAC190556070004582C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C804DABE190556070004582C /* TweetItTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C804DAB6190556070004582C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C804DA8E190556070004582C /* TweetIt */;
+			targetProxy = C804DAB5190556070004582C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C804DA9B190556070004582C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C804DA9C190556070004582C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C804DAA4190556070004582C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C804DAA5190556070004582C /* Base */,
+			);
+			name = Main.storyboard;
+			path = TweetIt;
+			sourceTree = "<group>";
+		};
+		C804DABA190556070004582C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C804DABB190556070004582C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C804DABF190556070004582C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C804DAC0190556070004582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C804DAC2190556070004582C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TweetIt/TweetIt-Prefix.pch";
+				INFOPLIST_FILE = "TweetIt/TweetIt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C804DAC3190556070004582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TweetIt/TweetIt-Prefix.pch";
+				INFOPLIST_FILE = "TweetIt/TweetIt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C804DAC5190556070004582C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TweetIt.app/TweetIt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TweetIt/TweetIt-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TweetItTests/TweetItTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C804DAC6190556070004582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TweetIt.app/TweetIt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TweetIt/TweetIt-Prefix.pch";
+				INFOPLIST_FILE = "TweetItTests/TweetItTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C804DA8A190556070004582C /* Build configuration list for PBXProject "TweetIt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C804DABF190556070004582C /* Debug */,
+				C804DAC0190556070004582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C804DAC1190556070004582C /* Build configuration list for PBXNativeTarget "TweetIt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C804DAC2190556070004582C /* Debug */,
+				C804DAC3190556070004582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C804DAC4190556070004582C /* Build configuration list for PBXNativeTarget "TweetItTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C804DAC5190556070004582C /* Debug */,
+				C804DAC6190556070004582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C804DA87190556070004582C /* Project object */;
+}
