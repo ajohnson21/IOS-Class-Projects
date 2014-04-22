@@ -22,23 +22,23 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        avatar = [[UIImageView alloc] initWithFrame:CGRectMake(10, 60, 300, 150)];
+        avatar = [[UIImageView alloc] initWithFrame:CGRectMake(20, 320, 40, 40)];
         avatar.backgroundColor = [UIColor clearColor];
-        avatar.layer.masksToBounds = YES;
+        avatar.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:avatar];
         
-        selfImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 250, 300, 60)];
+        selfImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 280, 280)];
         selfImage.backgroundColor = [UIColor clearColor];
-        selfImage.layer.masksToBounds = YES;
+        selfImage.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:selfImage];
         
-        userID = [[UILabel alloc] initWithFrame:CGRectMake(100, 20, 200, 30)];
-        userID.backgroundColor = [UIColor clearColor];
-        userID.textColor = [UIColor blackColor];
-        userID.font = [UIFont systemFontOfSize:30];
-        [self.contentView addSubview:userID];
+//        userID = [[UILabel alloc] initWithFrame:CGRectMake(100, 50, 200, 30)];
+//        userID.backgroundColor = [UIColor clearColor];
+//        userID.textColor = [UIColor blackColor];
+//        userID.font = [UIFont systemFontOfSize:30];
+//        [self.contentView addSubview:userID];
         
-        caption = [[UILabel alloc] initWithFrame:CGRectMake(130, 320, 200, 30)];
+        caption = [[UILabel alloc] initWithFrame:CGRectMake(80, 320, 220, 40)];
         caption.backgroundColor = [UIColor clearColor];
         caption.textColor = [UIColor darkGrayColor];
         caption.font = [UIFont systemFontOfSize:16];
@@ -47,16 +47,25 @@
     return self;
 }
 
-- (void)setSelfyInfo:(NSDictionary *) selfyInfo
+- (void)setSelfyInfo:(NSDictionary *)selfyInfo
 {
-    avatar.image = [UIImage imageNamed:selfyInfo[@"avatar"]];
-    selfImage.image = [UIImage imageNamed:selfyInfo[@"selfImage"]];
+    // Trying to set the visual avatar image on our screen (little one next to caption)
+    NSURL* avatarURL = [NSURL URLWithString:selfyInfo[@"avatar"]];
+    NSData* avatarData = [NSData dataWithContentsOfURL:avatarURL];
+    avatar.image = [UIImage imageWithData:avatarData];
+    //self.selfyInfo[@"avatar"] = [UIImage imageWithData:imageData];
+    
+    // Trying to set the visual PHOTO image on our screen (big one)
+    NSURL* imageURL = [NSURL URLWithString:selfyInfo[@"selfImage"]];
+    NSData* imageData = [NSData dataWithContentsOfURL:imageURL];
+    selfImage.image = [UIImage imageWithData:imageData];
+    
     caption.text = selfyInfo[@"caption"];
     userID.text = selfyInfo[@"userID"];
     
+    
     _selfyInfo = selfyInfo;
 }
-
 
 - (void)awakeFromNib
 {

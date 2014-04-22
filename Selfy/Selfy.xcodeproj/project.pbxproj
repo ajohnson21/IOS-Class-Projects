@@ -20,9 +20,19 @@
 		C804DAFA1905884E0004582C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C804DAF81905884E0004582C /* InfoPlist.strings */; };
 		C804DAFC1905884E0004582C /* SelfyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DAFB1905884E0004582C /* SelfyTests.m */; };
 		C804DB07190588E50004582C /* SLFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DB06190588E50004582C /* SLFTableViewController.m */; };
-		C804DB0A19059F620004582C /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = C804DB0919059F620004582C /* Ship.png */; };
-		C804DB0C19059F660004582C /* Austen Johnson.png in Resources */ = {isa = PBXBuildFile; fileRef = C804DB0B19059F660004582C /* Austen Johnson.png */; };
 		C804DB101905A3A30004582C /* SLFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DB0F1905A3A30004582C /* SLFTableViewCell.m */; };
+		C804DB121906B88D0004582C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB111906B88D0004582C /* Parse.framework */; };
+		C804DB141906BD210004582C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB131906BD210004582C /* AudioToolbox.framework */; };
+		C804DB161906BD2B0004582C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB151906BD2B0004582C /* CFNetwork.framework */; };
+		C804DB181906BD3D0004582C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB171906BD3D0004582C /* CoreLocation.framework */; };
+		C804DB1A1906BD4E0004582C /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB191906BD4E0004582C /* libz.1.1.3.dylib */; };
+		C804DB1C1906BD5C0004582C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB1B1906BD5C0004582C /* MobileCoreServices.framework */; };
+		C804DB1E1906BD6D0004582C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB1D1906BD6D0004582C /* Security.framework */; };
+		C804DB201906BD740004582C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB1F1906BD740004582C /* QuartzCore.framework */; };
+		C804DB221906BD800004582C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB211906BD800004582C /* SystemConfiguration.framework */; };
+		C804DB241906BDA00004582C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C804DB231906BDA00004582C /* StoreKit.framework */; };
+		C804DB271906D6280004582C /* SLFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DB261906D6280004582C /* SLFLoginViewController.m */; };
+		C804DB2A1906DAF40004582C /* SLFSelfyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C804DB291906DAF40004582C /* SLFSelfyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +64,22 @@
 		C804DAFB1905884E0004582C /* SelfyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfyTests.m; sourceTree = "<group>"; };
 		C804DB05190588E50004582C /* SLFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFTableViewController.h; sourceTree = "<group>"; };
 		C804DB06190588E50004582C /* SLFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFTableViewController.m; sourceTree = "<group>"; };
-		C804DB0919059F620004582C /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
-		C804DB0B19059F660004582C /* Austen Johnson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Austen Johnson.png"; sourceTree = "<group>"; };
 		C804DB0E1905A3A30004582C /* SLFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFTableViewCell.h; sourceTree = "<group>"; };
 		C804DB0F1905A3A30004582C /* SLFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFTableViewCell.m; sourceTree = "<group>"; };
+		C804DB111906B88D0004582C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		C804DB131906BD210004582C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C804DB151906BD2B0004582C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C804DB171906BD3D0004582C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C804DB191906BD4E0004582C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		C804DB1B1906BD5C0004582C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C804DB1D1906BD6D0004582C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C804DB1F1906BD740004582C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C804DB211906BD800004582C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C804DB231906BDA00004582C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C804DB251906D6280004582C /* SLFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SLFLoginViewController.h; path = ../SLFLoginViewController.h; sourceTree = "<group>"; };
+		C804DB261906D6280004582C /* SLFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SLFLoginViewController.m; path = ../SLFLoginViewController.m; sourceTree = "<group>"; };
+		C804DB281906DAF40004582C /* SLFSelfyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SLFSelfyViewController.h; path = ../SLFSelfyViewController.h; sourceTree = "<group>"; };
+		C804DB291906DAF40004582C /* SLFSelfyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SLFSelfyViewController.m; path = ../SLFSelfyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +87,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C804DB241906BDA00004582C /* StoreKit.framework in Frameworks */,
+				C804DB221906BD800004582C /* SystemConfiguration.framework in Frameworks */,
+				C804DB201906BD740004582C /* QuartzCore.framework in Frameworks */,
+				C804DB1E1906BD6D0004582C /* Security.framework in Frameworks */,
+				C804DB1C1906BD5C0004582C /* MobileCoreServices.framework in Frameworks */,
+				C804DB1A1906BD4E0004582C /* libz.1.1.3.dylib in Frameworks */,
+				C804DB181906BD3D0004582C /* CoreLocation.framework in Frameworks */,
+				C804DB161906BD2B0004582C /* CFNetwork.framework in Frameworks */,
+				C804DB141906BD210004582C /* AudioToolbox.framework in Frameworks */,
 				C804DAD91905884E0004582C /* CoreGraphics.framework in Frameworks */,
 				C804DADB1905884E0004582C /* UIKit.framework in Frameworks */,
+				C804DB121906B88D0004582C /* Parse.framework in Frameworks */,
 				C804DAD71905884E0004582C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +119,6 @@
 		C804DACA1905884E0004582C = {
 			isa = PBXGroup;
 			children = (
-				C804DB0819059F0D0004582C /* pictures */,
 				C804DADC1905884E0004582C /* Selfy */,
 				C804DAF51905884E0004582C /* SelfyTests */,
 				C804DAD51905884E0004582C /* Frameworks */,
@@ -107,6 +138,16 @@
 		C804DAD51905884E0004582C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C804DB231906BDA00004582C /* StoreKit.framework */,
+				C804DB211906BD800004582C /* SystemConfiguration.framework */,
+				C804DB1F1906BD740004582C /* QuartzCore.framework */,
+				C804DB1D1906BD6D0004582C /* Security.framework */,
+				C804DB1B1906BD5C0004582C /* MobileCoreServices.framework */,
+				C804DB191906BD4E0004582C /* libz.1.1.3.dylib */,
+				C804DB171906BD3D0004582C /* CoreLocation.framework */,
+				C804DB151906BD2B0004582C /* CFNetwork.framework */,
+				C804DB131906BD210004582C /* AudioToolbox.framework */,
+				C804DB111906B88D0004582C /* Parse.framework */,
 				C804DAD61905884E0004582C /* Foundation.framework */,
 				C804DAD81905884E0004582C /* CoreGraphics.framework */,
 				C804DADA1905884E0004582C /* UIKit.framework */,
@@ -122,6 +163,10 @@
 				C804DAE61905884E0004582C /* SLFAppDelegate.m */,
 				C804DB05190588E50004582C /* SLFTableViewController.h */,
 				C804DB06190588E50004582C /* SLFTableViewController.m */,
+				C804DB251906D6280004582C /* SLFLoginViewController.h */,
+				C804DB261906D6280004582C /* SLFLoginViewController.m */,
+				C804DB281906DAF40004582C /* SLFSelfyViewController.h */,
+				C804DB291906DAF40004582C /* SLFSelfyViewController.m */,
 				C804DB0E1905A3A30004582C /* SLFTableViewCell.h */,
 				C804DB0F1905A3A30004582C /* SLFTableViewCell.m */,
 				C804DAE81905884E0004582C /* Images.xcassets */,
@@ -157,16 +202,6 @@
 				C804DAF81905884E0004582C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C804DB0819059F0D0004582C /* pictures */ = {
-			isa = PBXGroup;
-			children = (
-				C804DB0919059F620004582C /* Ship.png */,
-				C804DB0B19059F660004582C /* Austen Johnson.png */,
-			);
-			name = pictures;
-			path = Selfy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +280,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C804DB0C19059F660004582C /* Austen Johnson.png in Resources */,
-				C804DB0A19059F620004582C /* Ship.png in Resources */,
 				C804DAE11905884E0004582C /* InfoPlist.strings in Resources */,
 				C804DAE91905884E0004582C /* Images.xcassets in Resources */,
 			);
@@ -271,6 +304,8 @@
 				C804DB101905A3A30004582C /* SLFTableViewCell.m in Sources */,
 				C804DAE31905884E0004582C /* main.m in Sources */,
 				C804DB07190588E50004582C /* SLFTableViewController.m in Sources */,
+				C804DB2A1906DAF40004582C /* SLFSelfyViewController.m in Sources */,
+				C804DB271906D6280004582C /* SLFLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +422,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Selfy/Selfy-Prefix.pch";
 				INFOPLIST_FILE = "Selfy/Selfy-Info.plist";
@@ -400,6 +439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Selfy/Selfy-Prefix.pch";
 				INFOPLIST_FILE = "Selfy/Selfy-Info.plist";

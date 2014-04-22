@@ -6,10 +6,13 @@
 //  Copyright (c) 2014 Austen Johnson. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "SLFTableViewController.h"
 #import "SLFTableViewCell.h"
+#import "SLFSelfyViewController.h"
 
-@interface SLFTableViewController ()
+@interface SLFTableViewController () 
 
 @end
 
@@ -19,7 +22,7 @@
     UILabel * titleHeader;
     UIButton * settingsButton;
     UIButton * addNewButton;
-    NSArray *selfyList;
+    NSMutableArray *selfyList;
 
 }
 
@@ -30,15 +33,23 @@
         // Custom initialization
         
         
-        selfyList= @[
-                              @{@"selfImage":@"Ship",
+        selfyList=  [@[
+                              @{
+                                @"selfImage":@"http://www.cwu.edu/~helmersk/pirateimage.jpg",
                                 @"caption":@"It's a ship!",
                                 @"userID":@"ajohnson21",
-                                @"avatar":@"Austen Johnson"
+                                @"avatar":@"http://www.clipartbest.com/cliparts/pi5/6ap/pi56apLiB.jpeg",
+                                @"selfyID":@""
+                                 
                                 }
-                              ];
+                              
+                              ] mutableCopy];
+        
+        
+        
+        
+        self.tableView.rowHeight = self.tableView.frame.size.width + 100;
 
-//        [self.view addSubview:selfyList];
         
         header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
         header.backgroundColor  = [UIColor whiteColor];
@@ -50,9 +61,12 @@
         titleHeader.font = [UIFont fontWithName:@"HoeflerText-Italic" size:30];
         [self.view addSubview:titleHeader];
         
+//        settingsButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+//        [settingsButton setFrame:CGRectMake(20, 25, 60, 20)];
         settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 25, 60, 20)];
         [settingsButton setTitle:@"Settings" forState:UIControlStateNormal];
-        [settingsButton addTarget:self action:@selector(settings) forControlEvents: UIControlEventTouchUpInside];       settingsButton.backgroundColor = [UIColor blackColor];
+        [settingsButton addTarget:self action:@selector(settings) forControlEvents: UIControlEventTouchUpInside];
+        settingsButton.backgroundColor = [UIColor blackColor];
         settingsButton.layer.cornerRadius = 6;
         settingsButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         [settingsButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -61,7 +75,8 @@
         addNewButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
         [addNewButton  setFrame:CGRectMake(280, 25, 20, 20)];
         [addNewButton setTitle:@"Add New" forState:UIControlStateNormal];
-        [addNewButton addTarget:self action:@selector(addNew) forControlEvents: UIControlEventTouchUpInside];       addNewButton.backgroundColor = [UIColor blackColor];
+        [addNewButton addTarget:self action:@selector(addNew) forControlEvents: UIControlEventTouchUpInside];
+        addNewButton.backgroundColor = [UIColor blackColor];
         addNewButton.layer.cornerRadius = 6;
         addNewButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
         [addNewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -86,6 +101,7 @@
     [super viewDidLoad];
     
     self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableHeaderView = [UIView new];
     
     
 
@@ -104,9 +120,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -122,7 +135,7 @@
 
     if (cell == nil) cell = [[SLFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
-    cell.selfyInfo = selfyList [indexPath.row];    
+    cell.selfyInfo = selfyList[indexPath.row];    
     
     return cell;
 }
