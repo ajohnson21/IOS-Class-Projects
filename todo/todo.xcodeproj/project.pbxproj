@@ -28,7 +28,6 @@
 		C89606D418EC8AFE000406CC /* TJ Mercer.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606C918EC8AFE000406CC /* TJ Mercer.png */; };
 		C89606D518EC8AFE000406CC /* Ashby Thornwell.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */; };
 		C89606D618EC8AFE000406CC /* John Yam.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CB18EC8AFE000406CC /* John Yam.png */; };
-		C89606D718EC8AFE000406CC /* Austen Johnson.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CC18EC8AFE000406CC /* Austen Johnson.png */; };
 		C89606D818EC8AFE000406CC /* Jisha Obukwelu.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */; };
 		C89606D918EC8AFE000406CC /* Jon Fox.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606CE18EC8AFE000406CC /* Jon Fox.png */; };
 		C89606DB18EC8AFE000406CC /* Teddy Conyers.png in Resources */ = {isa = PBXBuildFile; fileRef = C89606D018EC8AFE000406CC /* Teddy Conyers.png */; };
@@ -75,7 +74,6 @@
 		C89606C918EC8AFE000406CC /* TJ Mercer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TJ Mercer.png"; sourceTree = "<group>"; };
 		C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ashby Thornwell.png"; sourceTree = "<group>"; };
 		C89606CB18EC8AFE000406CC /* John Yam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "John Yam.png"; sourceTree = "<group>"; };
-		C89606CC18EC8AFE000406CC /* Austen Johnson.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Austen Johnson.png"; sourceTree = "<group>"; };
 		C89606CD18EC8AFE000406CC /* Jisha Obukwelu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jisha Obukwelu.png"; sourceTree = "<group>"; };
 		C89606CE18EC8AFE000406CC /* Jon Fox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jon Fox.png"; sourceTree = "<group>"; };
 		C89606D018EC8AFE000406CC /* Teddy Conyers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Teddy Conyers.png"; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				C89606C918EC8AFE000406CC /* TJ Mercer.png */,
 				C89606D018EC8AFE000406CC /* Teddy Conyers.png */,
 				C89606CE18EC8AFE000406CC /* Jon Fox.png */,
-				C89606CC18EC8AFE000406CC /* Austen Johnson.png */,
 				C89606CA18EC8AFE000406CC /* Ashby Thornwell.png */,
 				C89606D318EC8AFE000406CC /* Derek Weber.png */,
 				C89606C718EC8AD9000406CC /* Jeffrey Moulds.png */,
@@ -305,7 +302,6 @@
 			files = (
 				C89606D418EC8AFE000406CC /* TJ Mercer.png in Resources */,
 				C89606C418EC8ACC000406CC /* Jeff King.png in Resources */,
-				C89606D718EC8AFE000406CC /* Austen Johnson.png in Resources */,
 				C89606C618EC8AD2000406CC /* Ali Houshmand.png in Resources */,
 				C89606DE18EC8AFE000406CC /* Derek Weber.png in Resources */,
 				C89594EA18EF333E000F7191 /* GitHubFlow.storyboard in Resources */,
