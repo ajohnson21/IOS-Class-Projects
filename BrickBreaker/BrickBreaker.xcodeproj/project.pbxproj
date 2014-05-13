@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C804DA8519054E190004582C /* baseball2.png in Resources */ = {isa = PBXBuildFile; fileRef = C804DA8419054E190004582C /* baseball2.png */; };
+		C82E8F401917DBFD0032FB68 /* click_alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = C82E8F3D1917DBFD0032FB68 /* click_alert.wav */; };
+		C82E8F411917DBFD0032FB68 /* electric_alert.wav in Resources */ = {isa = PBXBuildFile; fileRef = C82E8F3E1917DBFD0032FB68 /* electric_alert.wav */; };
+		C82E8F421917DBFD0032FB68 /* retro_click.wav in Resources */ = {isa = PBXBuildFile; fileRef = C82E8F3F1917DBFD0032FB68 /* retro_click.wav */; };
+		C82E8F441917DEB00032FB68 /* Zoom Down FX 001.wav in Resources */ = {isa = PBXBuildFile; fileRef = C82E8F431917DEB00032FB68 /* Zoom Down FX 001.wav */; };
+		C82E8F92191958AE0032FB68 /* BBASingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C82E8F91191958AE0032FB68 /* BBASingleton.m */; };
 		C82FB149190019BF00DBE056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB148190019BF00DBE056 /* Foundation.framework */; };
 		C82FB14B190019BF00DBE056 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB14A190019BF00DBE056 /* CoreGraphics.framework */; };
 		C82FB14D190019BF00DBE056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C82FB14C190019BF00DBE056 /* UIKit.framework */; };
@@ -38,6 +43,12 @@
 
 /* Begin PBXFileReference section */
 		C804DA8419054E190004582C /* baseball2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baseball2.png; sourceTree = "<group>"; };
+		C82E8F3D1917DBFD0032FB68 /* click_alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click_alert.wav; sourceTree = "<group>"; };
+		C82E8F3E1917DBFD0032FB68 /* electric_alert.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = electric_alert.wav; sourceTree = "<group>"; };
+		C82E8F3F1917DBFD0032FB68 /* retro_click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = retro_click.wav; sourceTree = "<group>"; };
+		C82E8F431917DEB00032FB68 /* Zoom Down FX 001.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Zoom Down FX 001.wav"; sourceTree = "<group>"; };
+		C82E8F90191958AE0032FB68 /* BBASingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBASingleton.h; sourceTree = "<group>"; };
+		C82E8F91191958AE0032FB68 /* BBASingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBASingleton.m; sourceTree = "<group>"; };
 		C82FB145190019BF00DBE056 /* BrickBreaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickBreaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82FB148190019BF00DBE056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C82FB14A190019BF00DBE056 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +101,12 @@
 		C82FB13C190019BF00DBE056 = {
 			isa = PBXGroup;
 			children = (
+				C82E8F90191958AE0032FB68 /* BBASingleton.h */,
+				C82E8F91191958AE0032FB68 /* BBASingleton.m */,
+				C82E8F3D1917DBFD0032FB68 /* click_alert.wav */,
+				C82E8F3E1917DBFD0032FB68 /* electric_alert.wav */,
+				C82E8F431917DEB00032FB68 /* Zoom Down FX 001.wav */,
+				C82E8F3F1917DBFD0032FB68 /* retro_click.wav */,
 				C82FB14E190019BF00DBE056 /* BrickBreaker */,
 				C82FB167190019BF00DBE056 /* BrickBreakerTests */,
 				C82FB147190019BF00DBE056 /* Frameworks */,
@@ -249,9 +266,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82E8F411917DBFD0032FB68 /* electric_alert.wav in Resources */,
 				C804DA8519054E190004582C /* baseball2.png in Resources */,
+				C82E8F421917DBFD0032FB68 /* retro_click.wav in Resources */,
 				C82FB153190019BF00DBE056 /* InfoPlist.strings in Resources */,
+				C82E8F441917DEB00032FB68 /* Zoom Down FX 001.wav in Resources */,
 				C895AB941901563E007B36DC /* BaseBallB.png in Resources */,
+				C82E8F401917DBFD0032FB68 /* click_alert.wav in Resources */,
 				C82FB15B190019BF00DBE056 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82FB17F190083F500DBE056 /* MOVE.m in Sources */,
+				C82E8F92191958AE0032FB68 /* BBASingleton.m in Sources */,
 				C82FB17C19001D4D00DBE056 /* BBALevelController.m in Sources */,
 				C82FB17919001BC400DBE056 /* BBAViewController.m in Sources */,
 				C82FB159190019BF00DBE056 /* BBAAppDelegate.m in Sources */,

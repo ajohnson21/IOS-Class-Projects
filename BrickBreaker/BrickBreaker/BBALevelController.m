@@ -8,8 +8,14 @@
 
 #import "BBALevelController.h"
 #import "MOVE.h"
+#import "BBASingleton.h"
 
-@interface BBALevelController () <UICollisionBehaviorDelegate>
+#import <AVFoundation/AVFoundation.h>
+
+@interface BBALevelController () <UICollisionBehaviorDelegate, AVAudioPlayerDelegate>
+
+//@property (nonatomic) AVAudioPlayer * player;
+@property (nonatomic) NSMutableArray * players;
 
 @property (nonatomic) UIImageView * paddle;
 @property (nonatomic) NSMutableArray * balls;
@@ -54,8 +60,9 @@
     {
         self.bricks = [@[] mutableCopy];
         self.balls = [@[] mutableCopy];
+        self.players = [@[] mutableCopy];
         
-        paddleWidth = 80;
+        paddleWidth = 320;
         points = 0;
         lives = 5;
         
@@ -69,6 +76,26 @@
     return self;
 }
 
+-(void)playSoundWithName:(NSString *)soundsName
+{
+    NSString * file = [[NSBundle mainBundle] pathForResource:soundsName ofType:@"wav"];
+    
+    NSURL * url = [[NSURL alloc] initFileURLWithPath:file];
+    
+    AVAudioPlayer * player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    player.delegate = self;
+    
+    [self.players addObject:player];
+    
+    [player play];
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [self.players removeObjectIdenticalTo:player];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -77,6 +104,8 @@
 
 -(void)resetLevel
 {
+    
+    [BBASingleton mainData].currentScore = 0;
     [self.delegate reduceLives:(int)lives];
 
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
@@ -128,6 +157,12 @@
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p;
 {
+    if ([item1 isEqual:self.paddle] || [item2 isEqual:self.paddle])
+    {
+        [self playSoundWithName:@"retro_click"];
+
+    }
+    
     UIView * tempBrick;
     for (UIView * brick in self.bricks)
     {
@@ -149,13 +184,23 @@
                 
                 NSLog(@"Total Points =  %d", points);
                 points += brick.tag;
+                
+                NSInteger currentScore = [BBASingleton mainData].currentScore;
+                
+                [BBASingleton mainData].currentScore = currentScore + brick.tag;
+                
                 [self.delegate addPoints:(int)points];
             }
             brick.alpha = 0.5;
         }
         
     }
-    if (tempBrick != nil) [self.bricks removeObjectIdenticalTo:tempBrick];
+    if (tempBrick != nil)
+    {
+        [self playSoundWithName:@"electric_alert"];
+        [self.bricks removeObjectIdenticalTo:tempBrick];
+    }
+        
 }
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p

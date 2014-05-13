@@ -104,6 +104,7 @@
     
 }
 
+
 -(void)changeSizes: (UISlider *) sender
 {
     scribbleView.lineWidth = lineWidth;

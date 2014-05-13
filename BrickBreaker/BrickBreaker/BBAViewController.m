@@ -8,6 +8,7 @@
 
 #import "BBAViewController.h"
 #import "BBALevelController.h"
+#import "BBASingleton.h"
 
 @interface BBAViewController () <BBALevelDelegate>
 
@@ -41,10 +42,9 @@
         
         scoreBoard = [[UILabel alloc] initWithFrame:CGRectMake(370, 250, 300, 100)];
         scoreBoard.textColor = [UIColor blackColor];
-        scoreBoard.text = @"Score  0";
+        scoreBoard.text = [NSString stringWithFormat:@"%d", [BBASingleton mainData].topScore];
         scoreBoard.backgroundColor = [UIColor clearColor];
         [self.view addSubview:scoreBoard];
-        
         
         
         // Custom initialization
@@ -109,7 +109,7 @@
     level = [[BBALevelController alloc] initWithNibName:nil bundle:nil];
     level.delegate = self;
     
-    level.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 40);
+    level.view.frame = CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT - 40);
     [self.view addSubview:level.view];
     
     [startButton removeFromSuperview];

@@ -7,6 +7,7 @@
 //
 
 #import "TDLTableViewCell.h"
+#import "TDLSingleton.h"
 
 @implementation TDLTableViewCell
 {
@@ -42,29 +43,22 @@
     return self;
 }
 
-
-- (void)setProfileInfo:(NSDictionary *) profileInfo
-
+-(void)setIndex:(NSInteger)index
 {
+    _index = index;
+    
+    NSDictionary * profileInfo = [[TDLSingleton sharedCollection] allListItems] [index];
+    
     profileImage.image = profileInfo[@"image"];
     profileURL.text = profileInfo[@"github"];
     profileName.text = profileInfo[@"name"];
     
-    _profileInfo = profileInfo;
-    
-  
-}
-
-- (void)awakeFromNib
-{
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 @end

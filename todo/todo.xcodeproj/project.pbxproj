@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82E8F95191959150032FB68 /* TDLSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = C82E8F94191959150032FB68 /* TDLSingleton.m */; };
 		C89594EA18EF333E000F7191 /* GitHubFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C89594E918EF333E000F7191 /* GitHubFlow.storyboard */; };
 		C896069018EC4AE7000406CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C896068F18EC4AE7000406CC /* Foundation.framework */; };
 		C896069218EC4AE7000406CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C896069118EC4AE7000406CC /* CoreGraphics.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C82E8F93191959150032FB68 /* TDLSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLSingleton.h; sourceTree = "<group>"; };
+		C82E8F94191959150032FB68 /* TDLSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLSingleton.m; sourceTree = "<group>"; };
 		C89594E918EF333E000F7191 /* GitHubFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GitHubFlow.storyboard; sourceTree = "<group>"; };
 		C896068C18EC4AE7000406CC /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C896068F18EC4AE7000406CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +115,8 @@
 		C896068318EC4AE7000406CC = {
 			isa = PBXGroup;
 			children = (
+				C82E8F93191959150032FB68 /* TDLSingleton.h */,
+				C82E8F94191959150032FB68 /* TDLSingleton.m */,
 				C89594E918EF333E000F7191 /* GitHubFlow.storyboard */,
 				C896069518EC4AE7000406CC /* todo */,
 				C8EFC61618EDA7B300D042DC /* Controllers */,
@@ -335,6 +340,7 @@
 			files = (
 				C8EFC61518EDA79600D042DC /* TDLTableViewCell.m in Sources */,
 				C896069C18EC4AE7000406CC /* main.m in Sources */,
+				C82E8F95191959150032FB68 /* TDLSingleton.m in Sources */,
 				C897610618F4263300237CD4 /* TDLGitHubRequest.m in Sources */,
 				C89606A018EC4AE7000406CC /* TDLAppDelegate.m in Sources */,
 				C89606C018EC4C79000406CC /* TDLRootTableViewController.m in Sources */,
