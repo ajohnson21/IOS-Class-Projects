@@ -286,7 +286,6 @@
             
             brick.layer.cornerRadius = 6;
 //            brick.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0];
-            brick.backgroundColor = [UIColor redColor];
             
             [self.view addSubview:brick];
             [self.bricks addObject:brick];

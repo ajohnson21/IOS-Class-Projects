@@ -54,29 +54,8 @@
         [footer addSubview:footerholder];
         self.tableView.tableFooterView  = footer;
         
-//        nameField = [[UITextField alloc] initWithFrame:CGRectMake(20, 20, 200, 30)];
-//        [header addSubview:nameField];
-//        nameField.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
-//        nameField.placeholder = @" Enter contact here...";
-//        nameField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
-//        nameField.leftViewMode = UITextFieldViewModeAlways;
-//        nameField.delegate = self;
-        
           nameField = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 170, 30)];
         self.navigationItem.titleView = nameField;
-        
-        
-//        UIButton * submitButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 25, 60, 20)];
-//        [submitButton setTitle:@"New User" forState:UIControlStateNormal];
-//        [submitButton addTarget:self action:@selector(newUser) forControlEvents: UIControlEventTouchUpInside];
-//        submitButton.backgroundColor = [UIColor blackColor];
-//        submitButton.layer.cornerRadius = 6;
-//        submitButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-//        [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-////        self.navigationItem.leftBarButtonItem = self.submitButton;
-//        [header addSubview:submitButton];
-        
-        
         
         UIBarButtonItem * submitButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector (newUser)];
         
@@ -129,7 +108,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     textField.placeholder = @" Enter contact here...";
-};
+}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -149,24 +128,6 @@
     
 }
 
-
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-//{
-//    if (sourceIndexPath == destinationIndexPath) return;
-//    
-//    NSDictionary * sourceitem = [self getListItem:sourceIndexPath.row];
-//    
-//    NSDictionary * toitem = [self getListItem:destinationIndexPath.row];
-//    
-////    [listItems removeObjectIdenticalTo:sourceitem];
-//    [[TDLSingleton sharedCollection] removeListItem:sourceitem];
-//    [listItems insertObject:sourceitem atIndex:[listItems indexOfObject:toitem]];
-//    
-//    [self saveData];
-//    
-//}
-
-
 - (void)newUser
 
 {
@@ -174,12 +135,7 @@
     
     nameField.text = @"";
     
-    
-//    [listItems addObject:@{
-//        @"name" : username,
-//      //@"image" : [UIImage imageNamed: @"New User"],
-//        @"github" : [NSString stringWithFormat: @"https://github.com/%@", username ]}
-//     ];
+
     
     [nameField resignFirstResponder];
     [self.tableView reloadData];
